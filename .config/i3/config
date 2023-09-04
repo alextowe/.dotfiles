@@ -37,7 +37,7 @@ for_window [class="floating"] floating enable, border normal, resize set 1200 70
 for_window [class="feh"] floating enable, border normal, move position center
 for_window [class="vlc"] floating enable, border normal, move position center
 for_window [class="Pavucontrol"] floating enable, border normal, resize set 500 500, move position center
-for_window [class="^Steam$"] floating enable, move position center
+for_window [class="^steam$"] floating enable, move position center
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -167,7 +167,7 @@ workspace 10 output $monitor1
 exec --no-startup-id $HOME/bin/create-workspaces
 
 # assign applications to specific workspaces
-assign [class="^Steam$"] $ws8
+assign [class="^steam$"] $ws8
 assign [class="^discord$"] $ws9
 
 # reload the configuration file
