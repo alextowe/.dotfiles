@@ -1,15 +1,2 @@
-/**
 
-!/.gitignore
-!/.bashrc
-
-!/.config/
-!/.config/i3/
-!/.config/i3/workspaces/
-!/.config/i3status/
-!/.config/i3status/config.bak
-!/.config/nvim/
-!/.config/ranger/
-
-!/bin/
 
