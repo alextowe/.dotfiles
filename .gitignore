@@ -9,15 +9,14 @@
 !/.config/
 /.config/**
 !/.config/i3/
-!/.config/i3/config
+!/.config/i3/config.bak
 !/.config/i3/workspaces/
 !/.config/i3/workspaces/workspace-1.json
 !/.config/i3/workspaces/workspace-10.json
 !/.config/i3status/
-!/.config/kitty/
+!/.config/i3status/config.bak
 !/.config/nvim/
 !/.config/ranger/
-!/.config/picom.conf
 !/.config/background.png
 
 !/bin/
