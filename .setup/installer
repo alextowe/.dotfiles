@@ -1,0 +1,60 @@
+#!/bin/bash
+
+echo -e "\nStarting installation.....\n"
+
+sudo pacman -Syu --noconfirm
+echo ""
+
+# Install software
+ 
+# Check if nevovim is already installed. If not, install it. 
+# Uninstall vim if it is installed.
+if type nvim >/dev/null 2>/dev/null; then
+    echo -e "Neovim is already installed!\n" 
+else 
+    echo -e "Installing neovim.....\n"
+    sudo pacman -S neovim --noconfirm
+    echo ""
+fi
+
+if type vim >/dev/null 2>/dev/null; then 
+    echo -e "Removing vim.....\n"
+    sudo pacman -Rs vim --noconfirm
+    echo ""
+fi
+
+# Check if brave browser is already installed. If not, install it.
+# Uninstall firefox if it is installed.
+if type brave >/dev/null 2>/dev/null; then
+    echo -e "Brave browser is already installed!\n" 
+else 
+    echo -e "Installing Brave Browser.....\n"
+    sudo pacman -S brave-broswer --noconfirm
+    echo ""
+fi
+
+if type firefox >/dev/null 2>/dev/null; then
+    echo -e "Removing firefox.....\n"
+    sudo pacman -Rs firefox --noconfirm
+    echo ""
+fi
+
+
+
+# Set custom alias for the current shell session to enable direct 
+# commits to the bare repo
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+
+
+# Hide untracked files
+dot config --local status.showUntrackedFiles no
+
+
+# Backup and remove any files that 
+mv $HOME/.config/i3/config $HOME/.config/i3/config.bak
+mv $HOME/.config/i3status/config $HOME/.config/i3status/config.bak
+mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.bak
+mv $HOME/.bashrc $HOME/.bashrc.bak
+mv $HOME/.gitignore $HOME/.gitignore.bak
+
+dot checkout
