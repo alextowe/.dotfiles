@@ -50,7 +50,7 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 dot config --local status.showUntrackedFiles no
 
 
-# Backup and remove any files that 
+# Backup files
 mv $HOME/.config/i3/config $HOME/.config/i3/config.bak
 mv $HOME/.config/i3status/config $HOME/.config/i3status/config.bak
 mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.bak
