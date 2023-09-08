@@ -48,6 +48,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # applications keybinds
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec kitty --class floating
 bindsym $mod+Shift+a exec pavucontrol
 bindsym $mod+b exec kitty --class floating ranger
