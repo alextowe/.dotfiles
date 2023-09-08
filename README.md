@@ -1,6 +1,6 @@
 # My personal dotfiles
 
-This is my personal dotfiles for Manjaro Linux with i3wm. Uses a bare git repo with working directory set to the $HOME folder. Run the commands below to setup on a new system. Make sure you have git installed.
+These are my personal dotfiles for Manjaro Linux with i3wm. Uses a bare git repo with working directory set to the $HOME folder. Run the commands below to setup on a new system. Make sure you have git installed.
 
 1. The first step is to clone this repository into a folder in your home directory called `.dotfiles.git`. Use the `--bare` flag to clone as a bare repo.  
 
