@@ -51,14 +51,17 @@ nd () {
 # git shortcuts
 alias gs="git status"
 alias gl="git log"
-alias ga="git push"
+alias gb="git branch"
 alias ga="git add ."
 alias gd="git diff"
+alias gp="git push"
 alias gu="git restore --staged ."
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias ds="dot status"
 alias dl="dot log"
+alias db="dot branch"
 alias dd="dot diff"
+alias dp="dot push"
 gc () { git commit -m "$@" ; }
 gac () {
 	ga ;
