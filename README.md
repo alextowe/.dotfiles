@@ -9,7 +9,7 @@ These are my personal dotfiles for Manjaro Linux with i3wm. Uses a bare git repo
 
 2. Next, define the custom alias that lets you run the next two commands. The command below sets the alias `dot` to a git command that directs the git directory (`--git-dir`) to the place where you cloned into (`$HOME/.dotfiles.git`). It also sets the working tree to the home folder (`--work-tree=$HOME`).    
         
-        alias dot=/user/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME
+        alias dot=/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME
 
 
 3. Now you need to tell git to hide untracked files. This way when running `dot status`, every untracked file in the home directory won't be displayed.
