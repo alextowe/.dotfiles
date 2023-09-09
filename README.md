@@ -69,7 +69,7 @@ Now pull the compressed files into the working directory.
 
 	dot checkout
 
-Some or all of the files listed below may conflict with the previous command. Make backups and delete originals. Then, run the `dot status` command again.
+Some or all of the files listed below may conflict with the previous command. Make backups and delete originals. Then, run the `dot checkout` command again.
 
 	.config/i3/config
 	.config/i3status/config
