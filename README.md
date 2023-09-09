@@ -4,7 +4,7 @@ These are my personal dotfiles for Manjaro Linux with i3wm. Uses a bare git repo
 
 1. The first step is to clone this repository into a folder in your home directory called `.dotfiles.git`. Use the `--bare` flag to clone as a bare repo.  
 
-        git clone --bare <remote-repo-url> $HOME/.dotfiles.git
+        git clone --bare git@github.com:alextowe/dotfiles.git $HOME/.dotfiles.git
 
 
 2. Next, define the custom alias that lets you run the next two commands. The command below sets the alias `dot` to a git command that directs the git directory (`--git-dir`) to the place where you cloned into (`$HOME/.dotfiles.git`). It also sets the working tree to the home folder (`--work-tree=$HOME`).    
