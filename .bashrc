@@ -70,7 +70,6 @@ gac () {
 dc () { dot commit -m "$@" ; }
 
 # code shorcuts
-alias code="cd $HOME/code"
 dev () { cd "$HOME/code/$@" ; }
 delp () {	
 	rm -rf "$HOME/code/$@" ;
