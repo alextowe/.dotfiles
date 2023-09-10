@@ -71,9 +71,9 @@ Now pull the compressed files into the working directory.
 
 Some or all of the files listed below may conflict with the previous command. Make backups and delete originals. Then, run the `dot checkout` command again.
 
-	.config/i3/config
 	.config/i3status/config
 	.config/nvim/init.vim
+	.i3/config
 	.bashrc
 	.gitignore
 	README.md
