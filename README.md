@@ -45,6 +45,14 @@ You will need to display the public key in the terminal, copy it, and add it to 
 
 	cat $HOME/.ssh/<key-name>.pub
 
+If you used a custom key name, you'll need to add a host for github to the ssh configuration.  Create the file `$HOME/.ssh/config`, and add the following snippet to it. Replace *key-name* with your custom key name. 
+
+	Host github.com
+  		HostName github.com
+  		User git
+  		IdentityFile ~/.ssh/<key_name>
+  		IdentitiesOnly yes
+
 Test the connection. 
 
 	ssh -T git@github.com 
@@ -64,6 +72,23 @@ Define a custom alias that points the git directory to the location of the git f
 Tell git to hide untracked files. This way when running `dot status`, every untracked file in the home directory won't be displayed.
 
 	dot config --local status.showUntrackedFiles no
+
+
+Update all packages. 
+
+	sudo pacman -Syu 
+
+Install any software needed for the configuration.
+	
+	sudo pacman -S openshh neovim code brave-browser nvidia discord steam 
+
+Uninstall any unneeded packages,
+
+	sudo pacman -Rs vim palemoon 
+
+Upgrade to PulseAudio
+
+	install_pulse
 
 Now pull the compressed files into the working directory.
 
