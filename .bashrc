@@ -75,8 +75,7 @@ delp () {
 	rm -rf "$HOME/code/$@" ;
 	echo "Project $@ has been deleted." ;
 }
-
-
+ 
 
 # python/pip/django shortcuts
 alias venv="cd $HOME/venv"
