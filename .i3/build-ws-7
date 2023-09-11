@@ -1,7 +1,7 @@
 #!/bin/bash
 
 i3-msg "workspace 7; append_layout $HOME/.i3/workspace-7.json" 
-urxvt -name term1 &
-urxvt -name term2 &
-urxvt -name term3 &
-urxvt -name term4 &
+alacritty --class Alacritty,term1 &
+alacritty --class Alacritty,term2 &
+alacritty --class Alacritty,term3 &
+alacritty --class Alacritty,term4 &
