@@ -1,7 +1,7 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-# set default desktop layout (default is tiling)
+# Set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -11,39 +11,30 @@ default_floating_border normal
 # Hide borders
 hide_edge_borders none
 
-# change borders
+# Change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font xft:URWGothic-Book 11
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal
 bindsym $mod+Return exec $TERMINAL
 
-# kill focused window
+# Kill focused window
 bindsym $mod+q kill
 
-# start program launcher
+# Start program launcher
 bindsym $mod+d exec --no-startup-id dmenu_recency
 
-# launch categorized menu
+# Launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
+# Sound settings
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
 bindsym $mod+a exec pavucontrol
-
-################################################################################################
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -69,75 +60,72 @@ bindsym $mod+Ctrl+v exec i3-msg workspace 10 && brave
 
 # focus_follows_mouse no
 
-# change focus
+# Change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# Move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# workspace back and forth (with/without active container)
+# Workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
-# split orientation
+# Split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+Shift+q split toggle
 
-# toggle fullscreen mode for the focused container
+# Toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# toggle sticky
+# Toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
-# focus the parent container
+# Focus the parent container
 bindsym $mod+p focus parent
 
-# move the currently focused window to the scratchpad
+# Move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-#navigate workspaces next / previous
+# Navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -149,7 +137,7 @@ set $ws8 8
 set $ws9 9
 set $ws0 10
 
-# switch to workspace
+# Switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -185,17 +173,17 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
-# define variables for monitors
+# Define variables for monitors
 set $monitor0 "DP-4"
 set $monitor1 "HDMI-0"
 
-# set monitor positions, size and refresh rate
+# Set monitor positions, size and refresh rate
 exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 60 
 exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --auto --left-of DP-4
 bindsym $mod+Shift+y exec xrandr --output DP-4 --mode 1920x1080 --rate 144
 bindsym $mod+Shift+u exec xrandr --output DP-4 --mode 1920x1080 --rate 60
 
-# assign workspaces to monitors 
+# Assign workspaces to monitors 
 workspace 1 output $monitor0
 workspace 2 output $monitor0
 workspace 3 output $monitor0
@@ -205,7 +193,7 @@ workspace 8 output $monitor0
 workspace 9 output $monitor1
 workspace 10 output $monitor1
 
-# assign applications to specific workspaces
+# Assign applications to specific workspaces
 assign [class="^steam$"] $ws5
 assign [class="^Thunar$"] $ws6
 assign [class="^code-oss$"] $ws8
@@ -239,16 +227,16 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="^steam$"] floating enable, move position center
 
-# switch to workspace with urgent window automatically
+# Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-# reload the configuration file
+# Reload the configuration file
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3 inplace
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
+# Exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
@@ -263,12 +251,12 @@ mode "$mode_system" {
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
+    # Exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-# Resize window (you can also use the mouse for that)
+# Resize window
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -281,13 +269,13 @@ mode "resize" {
         bindsym l resize shrink height 5 px or 5 ppt
         bindsym semicolon resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
+        # Same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # exit resize mode: Enter or Escape
+        # Exit resize mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -313,21 +301,10 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec --no-startup-id xrdb $HOME/.Xresources
 
-
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your 
-# terminal background change the line 362 from:
-# background #14191D
-# to:
-# background $term_background
-# Same logic applied to everything else.
-set_from_resource $term_background background
+# Import settings from ~/.Xresources
+set_from_resource $term_background background 
 set_from_resource $term_foreground foreground
 set_from_resource $term_color0     color0
 set_from_resource $term_color1     color1
@@ -345,30 +322,34 @@ set_from_resource $term_color12    color12
 set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
+set_from_resource $font    font
 
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
+# Font for window titles
+font xft:Inconsolata 12 
+
+# Start i3bar to display a workspace bar
 bar {
 	i3bar_command i3bar
 	status_command i3status
 	position bottom
+        font xft:Inconsolata Bold 12 
         tray_output primary
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        background $term_background
+        statusline $term_foreground
+        separator  $term_foreground
 
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        # Class                 Border          Backgr.         Text
+        focused_workspace       $term_color4    $term_color4    $term_background
+        active_workspace        $term_color0    $term_color0    $term_color7
+        inactive_workspace      $term_color0    $term_color0    $term_color7
+        binding_mode            $term_color4    $term_color4    $term_background
+        urgent_workspace        $term_color7    $term_color7    $term_background
     }
 }
 
@@ -376,68 +357,10 @@ bar {
 bindsym $mod+m bar mode toggle
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
-
-  client.background       #2B2C2B
-
-#############################
-### settings for i3-gaps: ###
-#############################
-
-# Set inner/outer gaps
-gaps inner 10
-gaps outer -2
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# Class                         Border          Backgr.         Text                    Indic.          child_border
+client.focused                  $term_color4    $term_color4    $term_background        #FDF6E3
+client.focused_inactive         $term_color0    $term_color0    $term_color7            #1ABC9C 
+client.unfocused                $term_color0    $term_color0    $term_color7 #454948
+client.urgent                   $term_color7    $term_color7    $term_background
+client.placeholder              $term_color4    $term_color4    $term_background        #FDF6E3
+client.background               $term_background
