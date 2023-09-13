@@ -90,8 +90,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # Split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec notify-send 'Tile horizontally'
+bindsym $mod+v split v;exec notify-send 'Tile vertically'
 bindsym $mod+Shift+q split toggle
 
 # Toggle fullscreen mode for the focused container
@@ -216,7 +216,7 @@ for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [class="Pamac-manager"] floating enable
+for_window [class="pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
@@ -360,7 +360,7 @@ bindsym $mod+m bar mode toggle
 # Class                         Border          Backgr.         Text                    Indic.          child_border
 client.focused                  $term_color4    $term_color4    $term_background        #FDF6E3
 client.focused_inactive         $term_color0    $term_color0    $term_color7            #1ABC9C 
-client.unfocused                $term_color0    $term_color0    $term_color7 #454948
+client.unfocused                $term_color0    $term_color0    $term_color7            #454948
 client.urgent                   $term_color7    $term_color7    $term_background
 client.placeholder              $term_color4    $term_color4    $term_background        #FDF6E3
 client.background               $term_background
