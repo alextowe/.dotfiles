@@ -187,6 +187,7 @@ bindsym $mod+Shift+u exec xrandr --output DP-4 --mode 1920x1080 --rate 60
 workspace 1 output $monitor0
 workspace 2 output $monitor0
 workspace 3 output $monitor0
+workspace 5 output $monitor0
 workspace 6 output $monitor0
 workspace 7 output $monitor0
 workspace 8 output $monitor0
@@ -293,11 +294,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id numlockx
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
+exec_always --no-startup-id numlockx
+#exec --no-startup-id start_conky_maia
+exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -325,16 +324,15 @@ set_from_resource $term_color15    color15
 set_from_resource $font    font
 
 # Font for window titles
-font xft:Inconsolata 12 
+font xft:Source Code Pro 10
 
 # Start i3bar to display a workspace bar
 bar {
 	i3bar_command i3bar
 	status_command i3status
-	position bottom
-        font xft:Inconsolata Bold 12 
-        tray_output primary
-
+	position bottom 
+    tray_output primary
+    font xft:Source Code Pro Bold 10
 	bindsym button4 nop
 	bindsym button5 nop
 	strip_workspace_numbers yes

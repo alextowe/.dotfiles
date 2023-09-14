@@ -31,6 +31,19 @@ colors:
 # Font configuration
 font:
   normal:
-    family: Inconsolata
-    size: 12.0
+    family: Source Code Pro
     style: Regular
+
+  normal:
+    family: Source Code Pro
+    style: Bold
+
+  normal:
+    family: Source Code Pro
+    style: Italic
+
+  normal:
+    family: Source Code Pro
+    style: Bold Italic
+    
+  size: 10.0
