@@ -57,7 +57,6 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias ds="dot status"
 alias dl="dot log"
 alias db="dot branch -a"
-alias dd="dot diff"
 alias dp="dot push"
 gc () { git commit -m "$@" ; }
 gac () {

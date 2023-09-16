@@ -321,7 +321,6 @@ set_from_resource $term_color12    color12
 set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
-set_from_resource $font    font
 
 # Font for window titles
 font xft:Source Code Pro 10
@@ -355,10 +354,10 @@ bar {
 bindsym $mod+m bar mode toggle
 
 # Theme colors
-# Class                         Border          Backgr.         Text                    Indic.          child_border
-client.focused                  $term_color4    $term_color4    $term_background        #FDF6E3
-client.focused_inactive         $term_color0    $term_color0    $term_color7            #1ABC9C 
-client.unfocused                $term_color0    $term_color0    $term_color7            #454948
+# Class                         Border          Backgr.         Text                    Indic.          Child_border
+client.focused                  $term_color4    $term_color4    $term_background        $term_color4
+client.focused_inactive         $term_color0    $term_color0    $term_color7            $term_color0
+client.unfocused                $term_color0    $term_color0    $term_color7            $term_color0
 client.urgent                   $term_color7    $term_color7    $term_background
-client.placeholder              $term_color4    $term_color4    $term_background        #FDF6E3
+client.placeholder              $term_color4    $term_color4    $term_background        $term_color4
 client.background               $term_background
