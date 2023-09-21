@@ -1,4 +1,6 @@
 {
     "window.zoomLevel": -1,
-    "workbench.colorTheme": "Nord"
+    "workbench.colorTheme": "Nord",
+    "files.autoSave": "afterDelay",
+    "editor.wordWrap": "on"
 }

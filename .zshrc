@@ -71,7 +71,11 @@ delp () {
 	rm -rf "$HOME/dev/$@" ;
 	echo "Project $@ has been deleted." ;
 }
- 
+
+# psql shortcuts
+pdb () {
+	sudo -u postgres psql -d $@ -U alex ;
+}
 
 # python/pip/django shortcuts
 alias venv="cd $HOME/dev/venv"
