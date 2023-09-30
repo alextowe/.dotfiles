@@ -102,7 +102,7 @@ workon () {
 	gs ;
 }
 delv () {
-	rm -rf "$HOME/venv/$@" ;
+	rm -rf "$HOME/dev/venv/$@" ;
 	echo "Python venv $@ has been deleted."
 } 
 delb () {
