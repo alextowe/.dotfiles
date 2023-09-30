@@ -51,7 +51,6 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+k --release exec --no-startup-id xkill
 bindsym $mod+Ctrl+a exec i3-msg workspace 1 && brave
-bindsym $mod+Ctrl+s exec steam
 bindsym $mod+Ctrl+d exec discord 
 bindsym $mod+Ctrl+z exec thunar
 bindsym $mod+Ctrl+x exec sh $HOME/.i3/build-ws-7
@@ -195,7 +194,6 @@ workspace 9 output $monitor1
 workspace 10 output $monitor1
 
 # Assign applications to specific workspaces
-assign [class="^steam$"] $ws5
 assign [class="^Thunar$"] $ws6
 assign [class="^code-oss$"] $ws8
 assign [class="^discord$"] $ws9
@@ -226,7 +224,6 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="^steam$"] floating enable, move position center
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -285,7 +282,6 @@ mode "resize" {
 bindsym $mod+Shift+p exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id steam -silent
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
