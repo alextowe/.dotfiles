@@ -1,6 +1,7 @@
 {
-    "window.zoomLevel": -1,
     "workbench.colorTheme": "Nord",
     "files.autoSave": "afterDelay",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "window.zoomLevel": -1,
+    "explorer.confirmDragAndDrop": false
 }
