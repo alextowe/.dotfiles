@@ -1,7 +1,7 @@
 {
     "border": "pixel",
     "floating": "auto_off",
-    "layout": "tabbed",
+    "layout": "splith",
     "marks": [],
     "percent": null,
     "type": "con",
@@ -9,9 +9,9 @@
         {
             "border": "pixel",
             "floating": "auto_off",
-            "layout": "splith",
+            "layout": "tabbed",
             "marks": [],
-            "percent": 0.5,
+            "percent": 0.6,
             "type": "con",
             "nodes": [
                 {
@@ -19,19 +19,49 @@
                     "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
-                       "height": 364,
-                       "width": 724,
+                       "height": 768,
+                       "width": 1024,
+                       "x": 2368,
+                       "y": 156
+                    },
+                    "marks": [],
+                    "name": "Code 1",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                            "class": "^code\\-oss$",
+                            "instance": "^code\\-oss$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "marks": [],
+            "percent": 0.4,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 600,
+                       "width": 800,
                        "x": 0,
                        "y": 0
                     },
                     "marks": [],
-                    "name": "Terminal 1",
+                    "name": "Term 1",
                     "percent": 0.5,
                     "swallows": [
                        {
-                            "class": "^Alacritty$",
-                            "instance": "^term1$"
-                       
+                        "class": "^Alacritty$",
+                        "instance": "^term1$"
                        }
                     ],
                     "type": "con"
@@ -49,13 +79,13 @@
                             "current_border_width": 1,
                             "floating": "auto_off",
                             "geometry": {
-                               "height": 364,
-                               "width": 724,
+                               "height": 600,
+                               "width": 800,
                                "x": 0,
                                "y": 0
                             },
                             "marks": [],
-                            "name": "alex@alex-pc:~",
+                            "name": "Term 2",
                             "percent": 0.5,
                             "swallows": [
                                {
@@ -70,13 +100,13 @@
                             "current_border_width": 1,
                             "floating": "auto_off",
                             "geometry": {
-                               "height": 364,
-                               "width": 724,
+                               "height": 600,
+                               "width": 800,
                                "x": 0,
                                "y": 0
                             },
                             "marks": [],
-                            "name": "alex@alex-pc:~",
+                            "name": "Term 3",
                             "percent": 0.5,
                             "swallows": [
                                {
@@ -89,27 +119,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 1,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 364,
-               "width": 724,
-               "x": 0,
-               "y": 0
-            },
-            "marks": [],
-            "name": "alex@alex-pc:~",
-            "percent": 0.5,
-            "swallows": [
-               {
-                "class": "^Alacritty$",
-                "instance": "^term4$"
-               }
-            ],
-            "type": "con"
         }
     ]
 }
