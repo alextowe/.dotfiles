@@ -52,10 +52,10 @@ bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+k --release exec --no-startup-id xkill
 bindsym $mod+Ctrl+a exec i3-msg workspace 1 && brave
 bindsym $mod+Ctrl+d exec discord 
-bindsym $mod+Ctrl+z exec thunar
+bindsym $mod+Ctrl+f exec thunar
 bindsym $mod+Ctrl+x exec sh $HOME/.i3/build-ws-8
 bindsym $mod+Ctrl+c exec code
-bindsym $mod+Ctrl+v exec i3-msg workspace 10 && brave
+bindsym $mod+Ctrl+z exec i3-msg workspace 10 && brave
 
 # focus_follows_mouse no
 
@@ -194,7 +194,7 @@ workspace 9 output $monitor1
 workspace 10 output $monitor1
 
 # Assign applications to specific workspaces
-assign [class="^Thunar$"] $ws6
+assign [class="^Thunar$"] $ws7
 assign [class="^code-oss$"] $ws8
 assign [class="^discord$"] $ws9
 
