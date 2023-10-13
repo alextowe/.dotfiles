@@ -47,33 +47,33 @@
             "nodes": [
                 {
                     "border": "pixel",
-                    "current_border_width": 1,
-                    "floating": "auto_off",
-                    "geometry": {
-                       "height": 600,
-                       "width": 800,
-                       "x": 0,
-                       "y": 0
-                    },
-                    "marks": [],
-                    "name": "Term 1",
-                    "percent": 0.5,
-                    "swallows": [
-                       {
-                        "class": "^Alacritty$",
-                        "instance": "^term1$"
-                       }
-                    ],
-                    "type": "con"
-                },
-                {
-                    "border": "pixel",
                     "floating": "auto_off",
                     "layout": "splitv",
                     "marks": [],
                     "percent": 0.5,
                     "type": "con",
                     "nodes": [
+                        {
+                            "border": "pixel",
+                            "current_border_width": 1,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 600,
+                               "width": 800,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "marks": [],
+                            "name": "Term 1",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                "class": "^Alacritty$",
+                                "instance": "^term1$"
+                               }
+                            ],
+                            "type": "con"
+                        },
                         {
                             "border": "pixel",
                             "current_border_width": 1,
@@ -94,7 +94,17 @@
                                }
                             ],
                             "type": "con"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "splitv",
+                    "marks": [],
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
                         {
                             "border": "pixel",
                             "current_border_width": 1,
@@ -115,8 +125,50 @@
                                }
                             ],
                             "type": "con"
+                        },
+                        {
+                            "border": "pixel",
+                            "current_border_width": 1,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 600,
+                               "width": 800,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "marks": [],
+                            "name": "Term 4",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                "class": "^Alacritty$",
+                                "instance": "^term4$"
+                               }
+                            ],
+                            "type": "con"
                         }
                     ]
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 600,
+                       "width": 800,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "marks": [],
+                    "name": "Term 5",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^Alacritty$",
+                        "instance": "^term5$"
+                       }
+                    ],
+                    "type": "con"
                 }
             ]
         }
