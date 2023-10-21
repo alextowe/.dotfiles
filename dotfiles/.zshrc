@@ -9,6 +9,9 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
 
+# variables
+export DEV_DIR="$HOME/dev/"
+
 # editor control shortcuts
 export TERMINAL="/usr/bin/alacritty"
 export EDITOR=nvim # editor
@@ -53,32 +56,33 @@ alias ga="git add ."
 alias gd="git diff"
 alias gp="git push"
 alias gu="git restore --staged ."
-alias dot='/usr/bin/git --git-dir=$HOME/dev/dotfiles.git/ --work-tree=$HOME/dev/dotfiles.git'
-alias ds="dot status"
-alias dl="dot log"
-alias db="dot branch -a"
-alias dp="dot push"
 gc () { git commit -m "$@" ; }
 gac () {
 	ga ;
 	gc "$@";
 }
-dc () { dot commit -m "$@" ; }
 
 # dev shorcuts
-dev () { cd "$HOME/dev/$@" ; }
+dev () { 
+	if [[ $@ != "" ]];
+	then
+		cd "$DEV_DIR/$@" ;
+	else
+		cd "$DEV_DIR"
+	fi
+}
 delp () {	
-	rm -rf "$HOME/dev/$@" ;
+	rm -rf "$DEV_DIR/$@" ;
 	echo "Project $@ has been deleted." ;
 }
 
 # psql shortcuts
 pdb () {
-	sudo -u postgres psql -d $@ -U alex ;
+	sudo -u postgres psql -d $@ -U $USER ;
 }
 
 # python/pip/django shortcuts
-alias venv="cd $HOME/dev/venv"
+alias venv="cd $DEV_DIR/venv"
 alias sv="source bin/activate" 
 alias dv="deactivate"
 alias dvh="dv && home"
@@ -87,8 +91,8 @@ alias pf="pip freeze"
 alias pfr="pip freeze > requirements.txt"
 alias pir="pip install -r requirements.txt" 
 cvc () { python -m venv "$@" ; }
-cv () { python -m venv "$HOME/dev/venv/$@" ; }
-sve () { source "/$HOME/dev/venv/$@/bin/activate" ; }
+cv () { python -m venv "$DEV_DIR/venv/$@" ; }
+sve () { source "/$DEV_DIR/venv/$@/bin/activate" ; }
 new-python () { 
 	cv "$@" ;
 	sve "$@" ;	
@@ -102,7 +106,7 @@ workon () {
 	gs ;
 }
 delv () {
-	rm -rf "$HOME/dev/venv/$@" ;
+	rm -rf "$DEV_DIR/venv/$@" ;
 	echo "Python venv $@ has been deleted."
 } 
 delb () {
