@@ -53,7 +53,7 @@ alias ga="git add ."
 alias gd="git diff"
 alias gp="git push"
 alias gu="git restore --staged ."
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias dot='/usr/bin/git --git-dir=$HOME/dev/dotfiles.git/ --work-tree=$HOME/dev/dotfiles.git'
 alias ds="dot status"
 alias dl="dot log"
 alias db="dot branch -a"

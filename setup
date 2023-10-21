@@ -1,0 +1,72 @@
+#!/bin/bash
+
+
+# Install.remove software
+sudo pamac update --no-confirm
+sudo pamac install perl-anyevent-i3 git alacritty neovim code brave-browser nvidia discord stow xbindkeys xorg-xev zsh --no-confirm
+sudo pamac build xvkbd --no-confirm
+sudo pamac remove -o vim palemoon --no-confirm
+
+
+# Change shell to zsh
+sudo chsh -s /bin/zsh 
+
+
+# Upgrade to pulseaudio
+install_pulse
+
+
+# User config for git
+read -p "Enter  username for git: " USERNAME
+read -p "Enter email for git: " EMAIL
+git config --global user.name "$USERNAME"
+git config --global user.email "$EMAIL" 
+
+
+# Setup SSH key for GitHub.
+read -p "Setting up SSH key for GitHub. Enter key name: " KEY_NAME
+read -p "Would you like to use the same email address as git? (yes / no) " ANSWER
+
+while [[ "$ANSWER" != "yes" && "$ANSWER" != "no" ]]; do
+    read -p "Invalid answer. Please try again (yes / no) " ANSWER
+done
+
+if [[ "$ANSWER" == "yes" ]]; then
+    ssh-keygen -t ed25519 -C "$EMAIL" -f $HOME/.ssh/$KEY_NAME
+elif [[ "$ANSWER" == "no" ]]; then
+    read -p "Enter new email: " $NEW_EMAIL
+    ssh-keygen -t ed25519 -C "$NEW_EMAIL"
+fi
+
+eval "$(ssh-agent -s)"
+ssh-add $HOME/.ssh/$KEY_NAME
+echo -e "Copy the public key below and add it to your github account."
+cat $HOME/.ssh/$KEY_NAME.pub
+read -p "Type continue when it's added: " CONTINUE
+
+while [[ "$CONTINUE" != "continue" ]]; do
+    read -p "Invalid answer. Please type continue: " CONTINUE
+done
+
+touch $HOME/.ssh/config
+echo "
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/$KEY_NAME
+    IdentitiesOnly yes" >> $HOME/.ssh/config 
+
+echo -e "Testing SSH key....."
+ssh -T git@github.com
+
+
+# Change remote to use ssh
+git remote set-url origin git@github.com:alextowe/dotfiles.git
+
+
+# Use stow to create symlinks
+stow --adopt dotfiles -t ~
+
+
+# Reboot 
+reboot 

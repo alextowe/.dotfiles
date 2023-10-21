@@ -296,6 +296,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrdb $HOME/.Xresources
+exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 
 # Import settings from ~/.Xresources
 set_from_resource $term_background background 
