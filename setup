@@ -2,10 +2,10 @@
 
 
 # User config for git
-#read -p "Enter  username for git: " USERNAME
-#read -p "Enter email for git: " EMAIL
-#git config --global user.name "$USERNAME"
-#git config --global user.email "$EMAIL" 
+read -p "Enter  username for git: " USERNAME
+read -p "Enter email for git: " EMAIL
+git config --global user.name "$USERNAME"
+git config --global user.email "$EMAIL" 
 
 read -p "Would you like to set up an SSH key for GitHub? (y/n) " NEW_SSH
 while [[ "$NEW_SSH" != "y" && "$NEW_SSH" != "n" ]]; do
@@ -47,6 +47,7 @@ sudo pamac remove -o vim palemoon pcmanfm --no-confirm
 
 # Change shell to zsh
 sudo chsh -s /bin/zsh 
+sudo chsh -s /bin/zsh $USER
 
 
 # Upgrade to pulseaudio
