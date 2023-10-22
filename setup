@@ -45,23 +45,21 @@ sudo pamac build nordic-theme --no-confirm
 sudo pamac remove -o vim palemoon pcmanfm --no-confirm
 
 
-# Change shell to zsh
-sudo chsh -s /bin/zsh 
-sudo chsh -s /bin/zsh $USER
-
-
 # Upgrade to pulseaudio
 install_pulse
 
 
 # Use stow to create symlinks
-stow --adopt dotfiles -t ~
+for item in $(find dotfiles/ -type f); do
+    rm -rf $HOME/${item:9}
+done
+stow dotfiles -t ~
 
 
-# Make folder for virtual envrionments
-mkdir $DEV_DIR/venv
+# Change shell to zsh
+sudo chsh -s /bin/zsh 
+sudo chsh -s /bin/zsh $USER
 
 
 # Reboot 
 reboot 
-COMMENT
