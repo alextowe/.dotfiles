@@ -20,7 +20,7 @@ bindsym $mod+n border normal
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Return exec /usr/bin/alacritty
 
 # Kill focused window
 bindsym $mod+q kill
@@ -177,10 +177,8 @@ set $monitor0 "DP-4"
 set $monitor1 "HDMI-0"
 
 # Set monitor positions, size and refresh rate
-exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 60 
+exec --no-startup-id xrandr --output DP-4 --primary --mode 2560x1440 --rate 60 
 exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --auto --left-of DP-4
-bindsym $mod+Shift+y exec xrandr --output DP-4 --mode 1920x1080 --rate 144
-bindsym $mod+Shift+u exec xrandr --output DP-4 --mode 1920x1080 --rate 60
 
 # Assign workspaces to monitors 
 workspace 1 output $monitor0
