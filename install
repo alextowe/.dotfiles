@@ -1,0 +1,134 @@
+#!/bin/bash 
+
+# get all user input
+# 	keyboard layout
+# 	timezone
+# 	disk
+# 	root password
+# 	username
+# 	user password
+
+
+# display configuration based on user input
+
+# install based on user input
+
+# configure system (end with create password for root user)
+#	set time
+#	configure locales
+# 	enable sshd
+# 	enable network manager
+# 	start/enable postgres
+# 	enable lightdm
+#	install grub
+# 	set host info
+# 	set keyboard and font
+# 	create wheel config
+#	set root password
+#	create new user
+#	change shell for all users
+#	signin as new user
+
+# configure user settings
+# 	clone dotfiles
+# 	run setup	
+# 		create symlinks for dotfiles
+
+
+
+
+
+# Get keyboard layout
+read -p "Enter keyboard layout: " keymap
+
+# Get timezone
+read -p "Enter timezone (County/Region): " timezone
+
+# Get disk
+printf "\nSelect disk for installation.\n"
+lsblk
+printf "\nWarning! The disk you select will be wiped and re-formatted.\n"
+read -p "Enter the disk name: " disk
+
+# Get use/machine information
+read -p "Enter name for this machine: " hostname
+read -s -p "Enter password for the root user: " rootpass
+echo
+read -p "Enter username for your user: " username
+read -s -p "Enter password for your user: " userpass
+
+# Set keyboard layout
+printf "\nSetting keyboard layout..."
+loadkeys $keymap
+
+# Enable network time protocol
+printf "\nEnable network time protocol..."
+timedatectl set-ntp true
+
+# Update mirror list
+printf "\nUpdating mirror list...\n"
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+reflector --download-timeout 15 --latest 7 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist
+
+# Create, format and mount partitions
+wipefs -a /dev/"$disk"*
+parted -s /dev/$disk mktable gpt
+parted -sa optimal /dev/$disk mkpart primary fat32 0% 512MB set 1 esp on mkpart primary btrfs 512MB 100%
+lsblk
+mkfs.fat -F 32 /dev/"$disk"p1
+mkfs.ext4 /dev/"$disk"p2
+umount -R /mnt
+mount /dev/"$disk"p2 /mnt
+mount --mkdir /dev/"$disk"p1 /mnt/boot/efi
+
+
+
+
+# Install packages
+pacstrap -K /mnt base base-devel linux linux-firmware grub efibootmgr os-prober openssh sudo neovim ranger networkmanager reflector intel-ucode git zsh numlockx xdg-user-dirs man-db man-pages ntfs-3g postgresql python alsa-utils alsa-plugins pulseaudio xorg-server xorg-apps xorg-xinit i3-wm i3status i3lock perl-anyevent-i3 lightdm lightdm-gtk-greeter nvidia picom dmenu alacritty dolphin discord firefox noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font 
+
+
+
+
+# Create fstab file
+genfstab -U /mnt  >> /mnt/etc/fstab 
+
+# Configure time
+arch-chroot /mnt timedatectl set-ntp true
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/$timezone /etc/localtime
+arch-chroot /mnt hwclock --systohc
+
+# Configure locales
+printf "en_US.UTF-8 UTF-8\n" >> /mnt/etc/locale.gen 
+arch-chroot /mnt locale-gen
+printf "LANG=en_US.UTF-8\n" > /mnt/etc/locale.conf
+printf "\nKEYMAP=$keymap\n" >> /mnt/etc/vconsole.conf
+
+# Enable servicces
+arch-chroot /mnt systemctl enable ssdh
+arch-chroot /mnt systemctl enable NetworkManager
+arch-chroot /mnt systemctl enable lightdm
+
+# Configure grub
+arch-chroot /mnt grub-install --bootloader-id=arch
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+# Configure host machine
+printf "$hostname\n" >> /mnt/etc/hostname
+cat >> /mnt/etc/hosts << END
+127.0.0.1	localhost.localdomain	localhost
+::1		localhost.localdomain	localhost
+127.0.1.1	$hostname.localdomain	$hostname
+END
+
+# Configure users
+printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" >> /mnt/etc/sudoers.d/10-wheel
+echo "root:$rootpass" | arch-chroot /mnt chpasswd
+arch-chroot /mnt useradd -m -g users -G wheel,storage,power,audio $username
+echo "$username:$userpass" | arch-chroot /mnt chpasswd
+
+arch-chroot /mnt sudo -u $username bash -c "git clone https://github.com/alextowe/dotfiles.git ~/.dotfiles"
+
+printf "\n\nAll done! Remove the installation usb and reboot."
+umount -R /mnt
