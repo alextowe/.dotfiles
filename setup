@@ -1,20 +1,48 @@
 #!/bin/bash
 
-# Install/remove software
-sudo pamac update --no-confirm
-sudo pamac install perl-anyevent-i3 alacritty neovim firefox thunar manjaro-pulse pa-applet pavucontrol discord stow postgresql --no-confirm
-sudo pamac build nordic-theme --no-confirm
-sudo pamac remove -o vim palemoon pcmanfm --no-confirm
+# User config for git
+read -p "Enter  username for git: " USERNAME
+read -p "Enter email for git: " EMAIL
+git config --global user.name "$USERNAME"
+git config --global user.email "$GIT_EMAIL" 
 
+read -p "Would you like to set up an SSH key for GitHub? (y/n) " NEW_SSH
+while [[ "$NEW_SSH" != "y" && "$NEW_SSH" != "n" ]]; do
+    read -p "Invalid answer. Please try again (y/n) " NEW_SSH
+done
+
+if [[ $NEW_SSH == "y" ]]; then
+    read -p "Setting up SSH key for GitHub. Enter key name: " KEY_NAME
+    ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f $HOME/.ssh/$KEY_NAME
+    eval "$(ssh-agent -s)"
+    ssh-add $HOME/.ssh/$KEY_NAME
+
+    echo -e "Copy the public key below and add it to your github account."
+    cat $HOME/.ssh/$KEY_NAME.pub
+    read -p "Hit ENTER to continue." ENTER
+
+    touch $HOME/.ssh/config
+    echo "
+    Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/$KEY_NAME
+        IdentitiesOnly yes" >> $HOME/.ssh/config
+
+    echo -e "Testing SSH key....."
+    ssh -T git@github.com
+
+    REMOTE_REPO=$(basename -s .git `git config --get remote.origin.url`)
+    git remote set-url origin git@github.com:$USERNAME/$REMOTE_REPO.git
+fi
+
+# Postgresql config
+sudo -iu postgres
+initdb -D /var/lib/postgres/data
+exit
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
 
 # Use stow to create symlinks
 stow */ -t ~
 
-
-# Change shell to zsh
-sudo chsh -s /bin/zsh 
-sudo chsh -s /bin/zsh $USER
-
-
-# Reboot 
-reboot 

@@ -1,43 +1,5 @@
 #!/bin/bash 
 
-# get all user input
-# 	keyboard layout
-# 	timezone
-# 	disk
-# 	root password
-# 	username
-# 	user password
-
-
-# display configuration based on user input
-
-# install based on user input
-
-# configure system (end with create password for root user)
-#	set time
-#	configure locales
-# 	enable sshd
-# 	enable network manager
-# 	start/enable postgres
-# 	enable lightdm
-#	install grub
-# 	set host info
-# 	set keyboard and font
-# 	create wheel config
-#	set root password
-#	create new user
-#	change shell for all users
-#	signin as new user
-
-# configure user settings
-# 	clone dotfiles
-# 	run setup	
-# 		create symlinks for dotfiles
-
-
-
-
-
 # Get keyboard layout
 read -p "Enter keyboard layout: " keymap
 
@@ -129,6 +91,7 @@ arch-chroot /mnt useradd -m -g users -G wheel,storage,power,audio $username
 echo "$username:$userpass" | arch-chroot /mnt chpasswd
 
 arch-chroot /mnt sudo -u $username bash -c "git clone https://github.com/alextowe/dotfiles.git ~/.dotfiles"
+arch-chroot /mnt sudo -u $username bash -c "sh .dotfiles/setup"
 
-printf "\n\nAll done! Remove the installation usb and reboot."
 umount -R /mnt
+printf "\n\nAll done! Remove the installation usb and reboot."
