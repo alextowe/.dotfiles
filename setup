@@ -37,9 +37,9 @@ if [[ $NEW_SSH == "y" ]]; then
 fi
 
 # Postgresql config
-sudo -iu postgres
+sudo -iu postgres bash << END
 initdb -D /var/lib/postgres/data
-exit
+END
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
