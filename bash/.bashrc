@@ -1,17 +1,5 @@
-# Use powerline
-USE_POWERLINE="true"
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
-# Use manjaro zsh prompt
-if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-  source /usr/share/zsh/manjaro-zsh-prompt
-fi
-
 # variables
 export DEV_DIR="$HOME/dev/"
-export DOT_DIR="$DEV_DIR"/dotfiles
 
 # editor control shortcuts
 export TERMINAL="/usr/bin/alacritty"
@@ -26,7 +14,6 @@ alias clearedit="rm $HOME/.local/state/nvim/swap/*" # clear buffers left open af
 alias eb="$EDITOR $HOME/.zshrc" # edit .bashrc
 alias sz="source $HOME/.zshrc && echo 'zsh restarted!'" # restart .bashrc
 alias i3c="nvim $HOME/.i3/config" # open i3 config file
-alias dotfiles="cd $DOT_DIR"
 
 
 # package manager commands 

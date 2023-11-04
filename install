@@ -48,7 +48,7 @@ mount --mkdir /dev/"$disk"p1 /mnt/boot/efi
 
 
 # Install packages
-pacstrap -K /mnt base base-devel linux linux-firmware grub efibootmgr os-prober openssh sudo neovim ranger networkmanager reflector intel-ucode git zsh stow numlockx xdg-user-dirs man-db man-pages ntfs-3g postgresql python alsa-utils alsa-plugins pulseaudio xorg-server xorg-apps xorg-xinit i3-wm i3status i3lock perl-anyevent-i3 lightdm lightdm-gtk-greeter nvidia picom dmenu dunst alacritty dolphin discord firefox noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font 
+pacstrap -K /mnt base base-devel linux linux-firmware grub efibootmgr os-prober openssh sudo neovim ranger networkmanager reflector intel-ucode git zsh stow numlockx xdg-user-dirs man-db man-pages ntfs-3g postgresql python alsa-utils alsa-plugins pulseaudio xorg-server xorg-apps xorg-xinit i3-wm i3status i3lock perl-anyevent-i3 lightdm lightdm-gtk-greeter nvidia picom dmenu dunst alacritty thunar discord firefox noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-liberation ttf-droid ttf-roboto terminus-font 
 
 
 
