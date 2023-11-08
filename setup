@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # User config for git
-read -p "Enter  username for git: " USERNAME
+read -p "Enter username for git: " USERNAME
 read -p "Enter email for git: " EMAIL
 git config --global user.name "$USERNAME"
 git config --global user.email "$GIT_EMAIL" 
@@ -35,6 +35,12 @@ if [[ $NEW_SSH == "y" ]]; then
     REMOTE_REPO=$(basename -s .git `git config --get remote.origin.url`)
     git remote set-url origin git@github.com:$USERNAME/$REMOTE_REPO.git
 fi
+
+# Install packages
+echo "Installing packages..."
+sudo pacman -Syu --noconfirm
+sudo pacman -S neovim ranger perl-anyevent-i3 stow postgresql discord --noconfirm
+sudo pacman -Rs vi i3status --noconfirm
 
 # Postgresql config
 sudo -iu postgres bash << END

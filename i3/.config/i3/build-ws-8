@@ -1,9 +1,0 @@
-#!/bin/bash
-
-i3-msg "workspace 8; append_layout $HOME/.i3/workspace-8.json" 
-code &
-alacritty --class Alacritty,term1 &
-alacritty --class Alacritty,term2 &
-alacritty --class Alacritty,term3 &
-alacritty --class Alacritty,term4 &
-alacritty --class Alacritty,term5 &
