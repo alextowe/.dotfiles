@@ -36,11 +36,18 @@ if [[ $NEW_SSH == "y" ]]; then
     git remote set-url origin git@github.com:$USERNAME/$REMOTE_REPO.git
 fi
 
+# Skip password prompt for sudo commands
+sudo su - << END 
+printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" > /etc/sudoers.d/10-installer
+END
+
 # Install packages
 echo "Installing packages..."
-sudo pacman -Syu --noconfirm
-sudo pacman -S neovim ranger perl-anyevent-i3 stow postgresql discord --noconfirm
-sudo pacman -Rs vi i3status --noconfirm
+yay --no-confirm
+yay neovim ranger stow postgresql discord perl-anyevent-i3 blueberry nodejs --noconfirm
+
+# Change default editor
+sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
 
 # Postgresql config
 sudo -iu postgres bash << END
@@ -50,5 +57,5 @@ sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
 # Use stow to create symlinks
-stow */ -t ~
-
+stow --adopt */ -t ~
+git restore .

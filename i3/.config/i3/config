@@ -292,7 +292,7 @@ exec --no-startup-id dex --autostart --environment i3
 # Num lock activated
 exec --no-startup-id numlockx on
 
-# Start a script to setup displays
+# Configure displays
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # Set wallpaper
