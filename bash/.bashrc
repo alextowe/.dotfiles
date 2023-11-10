@@ -1,120 +1,61 @@
-# variables
-export DEV_DIR="$HOME/dev/"
+#
+# ~/.bashrc
+#
 
-# editor control shortcuts
-export TERMINAL="/usr/bin/alacritty"
-export EDITOR=nvim # editor
-export SUDO_EDITOR=nvim # sudo editor
-alias e="$EDITOR"
-alias se="sudoedit"
-alias clearedit="rm $HOME/.local/state/nvim/swap/*" # clear buffers left open after close
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
+[[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
 
-# configuration shortcuts
-alias eb="$EDITOR $HOME/.zshrc" # edit .bashrc
-alias sz="source $HOME/.zshrc && echo 'zsh restarted!'" # restart .bashrc
-alias i3c="nvim $HOME/.i3/config" # open i3 config file
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
+[[ "$(whoami)" = "root" ]] && return
 
-# package manager commands 
-alias pacup="sudo pacman -Syu"
-alias yayup="yay -Syu"
-pacsearch () { sudo pacman -Ss $@ ; }
-pacin () { sudo pacman -S $@; }
-yayin () { yay -S $@ ; }
-pacout () { sudo pacman -Rs $@ ; }
-yayout () { yay -R $@ ; }
+[[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
 
+## Use the up and down arrow keys for finding a command in history
+## (you can write some initial letters of the command first).
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 
-# basic shortcuts
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
-alias la="ls -alF" # list all
-alias r="ranger"
-alias home="cd $HOME"
-nd () { 
-	mkdir $@ ; 
-	cd $@ ;
+################################################################################
+## Some generally useful functions.
+## Consider uncommenting aliases below to start using these functions.
+##
+## October 2021: removed many obsolete functions. If you still need them, please look at
+## https://github.com/EndeavourOS-archive/EndeavourOS-archiso/raw/master/airootfs/etc/skel/.bashrc
+
+_open_files_for_editing() {
+    # Open any given document file(s) for editing (or just viewing).
+    # Note1:
+    #    - Do not use for executable files!
+    # Note2:
+    #    - Uses 'mime' bindings, so you may need to use
+    #      e.g. a file manager to make proper file bindings.
+
+    if [ -x /usr/bin/exo-open ] ; then
+        echo "exo-open $@" >&2
+        setsid exo-open "$@" >& /dev/null
+        return
+    fi
+    if [ -x /usr/bin/xdg-open ] ; then
+        for file in "$@" ; do
+            echo "xdg-open $file" >&2
+            setsid xdg-open "$file" >& /dev/null
+        done
+        return
+    fi
+
+    echo "$FUNCNAME: package 'xdg-utils' or 'exo' is required." >&2
 }
 
-# git shortcuts
-alias gs="git status"
-alias gl="git log"
-alias gb="git branch -a"
-alias ga="git add ."
-alias gd="git diff"
-alias gp="git push"
-alias gu="git restore --staged ."
-gc () { git commit -m "$@" ; }
-gac () {
-	ga ;
-	gc "$@";
-}
+#------------------------------------------------------------
 
-# dev shorcuts
-dev () { 
-	if [[ $@ != "" ]];
-	then
-		cd "$DEV_DIR/$@" ;
-	else
-		cd "$DEV_DIR"
-	fi
-}
-delp () {	
-	rm -rf "$DEV_DIR/$@" ;
-	echo "Project $@ has been deleted." ;
-}
+## Aliases for the functions above.
+## Uncomment an alias if you want to use it.
+##
 
-# psql shortcuts
-pdb () {
-	sudo -u postgres psql -d $@ -U $USER ;
-}
+# alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
+# alias pacdiff=eos-pacdiff
+################################################################################
 
-# python/pip/django shortcuts
-alias venv="cd $DEV_DIR/venv"
-alias sv="source bin/activate" 
-alias dv="deactivate"
-alias dvh="dv && home"
-alias di="python -m pip install django" 
-alias pf="pip freeze"
-alias pfr="pip freeze > requirements.txt"
-alias pir="pip install -r requirements.txt" 
-cvc () { python -m venv "$@" ; }
-cv () { python -m venv "$DEV_DIR/venv/$@" ; }
-sve () { source "/$DEV_DIR/venv/$@/bin/activate" ; }
-new-python () { 
-	cv "$@" ;
-	sve "$@" ;	
-	dev ;
-	nd $@;
-	git init ;
-}
-workon () { 
-	sve $@ ;
-	dev $@ ; 
-	gs ;
-}
-delv () {
-	rm -rf "$DEV_DIR/venv/$@" ;
-	echo "Python venv $@ has been deleted."
-} 
-delb () {
-	delp "$@" ;
-	delv "$@" ;
-}
-
-## django
-alias rs="python manage.py runserver"
-alias mm="python manage.py makemigrations"
-alias m="python manage.py migrate"
-sd () { django-admin startproject "$@" ; }
-mmm () { mm ; m  ; }
-new-django () { 
-	cv "$@" ;
-	sve "$@" ;
-	di ;
-	dev ;
-	sd "$@" ;	
-	cd "$@" ;
-	git init ;
-}
