@@ -7,6 +7,11 @@
 
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
+# Variables
+export EDITOR=/usr/bin/nvim
+export SUDO_EDITOR=/usr/bin/nvim
+export DEV_DIR=$HOME/dev
+
 [[ "$(whoami)" = "root" ]] && return
 
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
