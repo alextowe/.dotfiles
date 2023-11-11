@@ -43,8 +43,8 @@ END
 
 # Install packages
 echo "Installing packages..."
-yay --no-confirm
-yay neovim ranger stow postgresql discord perl-anyevent-i3 blueberry nodejs --noconfirm
+yay -Syu --noconfirm
+yay -S neovim ranger stow postgresql discord perl-anyevent-i3 blueberry nodejs --noconfirm
 
 # Change default editor
 sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
