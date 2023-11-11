@@ -49,6 +49,9 @@ yay -S neovim ranger stow postgresql rofi-greenclipl ttf-nerd-fonts-symbols-mono
 # Change default editor
 sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
 
+# Change dunst notification location
+sed -i "s/origin = bottom-right/origin = top-right/" $HOME/.config/dunst/dunstrc
+
 # Postgresql config
 sudo -iu postgres bash <<END
 initdb -D /var/lib/postgres/data
