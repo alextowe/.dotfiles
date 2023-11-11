@@ -1,4 +1,4 @@
-# My personal dotfiles
+My dotfiles
 
 
 

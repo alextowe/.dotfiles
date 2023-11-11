@@ -224,6 +224,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 # App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
+bindsym $mod+z exec $TERMINAL -e nvim -T neovim
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
@@ -268,6 +269,7 @@ workspace $ws5 output HDMI-0
 
 # Bind program to workspace
 assign [class="(?i)firefox"] $ws1
+assign [title="neovim"] $ws2
 assign [class="Thunar"] $ws3
 
 # Automatic set focus to new window 
@@ -314,7 +316,8 @@ exec --no-startup-id /usr/bin/dunst
 # Autostart apps as you like
 #exec --no-startup-id sleep 2 && xfce4-terminal
 exec --no-startup-id sleep 7 && firefox
-exec --no-startup-id sleep 3 && thunar
+exec --no-startup-id sleep 5 && thunar
+exec --no-startup-id sleep 3 && $TERMINAL -e nvim -T neovim
 
 
 #################
