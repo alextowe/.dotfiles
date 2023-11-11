@@ -2,7 +2,7 @@
 
 # User config for git
 read -p "Enter username for git: " USERNAME
-read -p "Enter email for git: " EMAIL
+read -p "Enter email for git: " GIT_EMAIL
 git config --global user.name "$USERNAME"
 git config --global user.email "$GIT_EMAIL"
 
