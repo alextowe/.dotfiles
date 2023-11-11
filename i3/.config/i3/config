@@ -272,6 +272,7 @@ workspace $ws5 output HDMI-0
 # Bind program to workspace
 assign [title="neovim"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="Xfce4-terminal"] $ws4
 
 # Automatic set focus to new window 
 for_window [class=Xfce4-terminal] focus
