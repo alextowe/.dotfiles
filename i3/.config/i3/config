@@ -370,11 +370,11 @@ set $mediumgrey       #8b8b8b
 set $yellowbrown      #e1b700
 
 # Define colors for windows
-#Class                  Border      Bground    Text    Indicator     Child_border
-client.focused          $lightblue  $darkblue   $white  $mediumgrey   $mediumgrey
-client.unfocused        $darkblue   $darkblue   $grey   $darkgrey     $darkgrey
-client.focused_inactive $darkblue   $darkblue   $grey   $black        $black
-client.urgent           $urgentred  $urgentred  $white  $yellowbrown  $yellowbrown
+#Class                  Border      Bground     Text        Indicator     Child_border
+client.focused          $mediumgrey $grey       $darkgrey   $purple       $mediumgrey
+client.unfocused        $darkgrey   $darkgrey   $grey       $purple       $darkgrey
+client.focused_inactive $lightblue  $mediumgrey $darkgrey   $purple       $darkgrey
+client.urgent           $urgentred  $urgentred  $white      $yellowbrown  $yellowbrown
 
 
 ##################
