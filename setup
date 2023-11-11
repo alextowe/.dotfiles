@@ -44,7 +44,7 @@ END
 # Install packages
 echo "Installing packages..."
 yay -Syu --noconfirm
-yay -S neovim ranger stow postgresql discord perl-anyevent-i3 blueberry nodejs --noconfirm
+yay -S neovim ranger stow postgresql rofi-greenclip discord perl-anyevent-i3 blueberry nodejs --noconfirm
 
 # Change default editor
 sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
@@ -59,3 +59,4 @@ sudo systemctl enable postgresql
 # Use stow to create symlinks
 stow --adopt */ -t ~
 git restore .
+reboot
