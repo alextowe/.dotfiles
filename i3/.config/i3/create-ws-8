@@ -1,6 +1,6 @@
 #!/bin/bash
 
-i3-msg "$ws7; append_layout $HOME/.config/i3/workspaces/workspace-7.json"
+i3-msg "$ws8; append_layout $HOME/.config/i3/workspaces/workspace-8.json"
 
 xfce4-terminal -T term0 &
 xfce4-terminal -T term1 &
