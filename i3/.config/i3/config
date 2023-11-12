@@ -255,7 +255,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5:"
 set $ws6 "6:"
 set $ws7 "7:"
 set $ws8 "8:"
@@ -279,6 +279,7 @@ assign [class="Xfce4-terminal"] $ws8
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
+for_window [class=Gthumb] focus
 
 
 ##############################################
@@ -311,7 +312,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
-#exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
+exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 
 # Desktop notifications
 exec --no-startup-id /usr/bin/dunst
