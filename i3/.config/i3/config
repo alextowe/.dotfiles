@@ -372,7 +372,7 @@ set $yellowbrown      #e1b700
 # Define colors for windows
 #Class                  Border      Bground     Text        Indicator     Child_border
 client.focused          $mediumgrey $grey       $darkgrey   $purple       $mediumgrey
-client.unfocused        $darkgrey   $darkgrey   $grey       $purple       $darkgrey
+client.unfocused        $mediumgrey $darkgrey   $grey       $purple       $darkgrey
 client.focused_inactive $lightblue  $mediumgrey $darkgrey   $purple       $darkgrey
 client.urgent           $urgentred  $urgentred  $white      $yellowbrown  $yellowbrown
 
