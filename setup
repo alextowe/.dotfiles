@@ -44,7 +44,7 @@ END
 # Install packages
 echo "Installing packages..."
 yay -Syu --noconfirm
-yay -S neovim ranger stow postgresql rofi-greenclipl ttf-nerd-fonts-symbols-mono nerd-fonts-jetbrains-mono-160 discord blueberry nodejs --noconfirm
+yay -S neovim ranger stow postgresql rofi-greenclip ttf-nerd-fonts-symbols-mono nerd-fonts-jetbrains-mono-160 discord blueberry nodejs --noconfirm
 
 # Change default editor
 sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
