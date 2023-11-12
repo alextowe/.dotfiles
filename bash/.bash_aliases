@@ -32,7 +32,7 @@ alias gd="git diff"
 alias gp="git push"
 alias gr="git restore ."
 alias gu="git restore --staged ."
-alias dump="git_add_commit"
+alias dump="git_add_commit && gp"
 
 ##########################
 #  Postgresql shortcuts  #
