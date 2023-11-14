@@ -302,7 +302,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # Set wallpaper
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/eos_wallpapers_community/Endy_vector_satelliet.png
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -325,17 +325,9 @@ exec --no-startup-id sleep 3 && firefox
 #  System tray  #
 #################
 
-# Start blueberry app for managing bluetooth devices from tray:
-exec --no-startup-id blueberry-tray
-
 # Networkmanager-applet
 exec --no-startup-id nm-applet
 
-# Pulseaudio 
-exec --no-startup-id pasystray
-
-# Clipman-applet
-exec --no-startup-id xfce4-clipman
 
 ####################
 #  Floating rules  #
