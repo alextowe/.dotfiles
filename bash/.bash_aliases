@@ -32,7 +32,7 @@ alias gd="git diff"
 alias gp="git push"
 alias gr="git restore ."
 alias gu="git restore --staged ."
-alias dump="git_add_commit"
+alias gac="git_add_commit"
 
 ##########################
 #  Postgresql shortcuts  #
@@ -50,6 +50,7 @@ alias createdb="createdb -O $USER"
 ######################
 
 alias rs="python manage.py runserver"
+alias dsh="python manage.py shell"
 alias mm="python manage.py makemigrations"
 alias m="python manage.py migrate"
 alias mmm="mm && m"

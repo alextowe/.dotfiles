@@ -318,7 +318,7 @@ exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 exec --no-startup-id /usr/bin/dunst
 
 # Autostart firefox 
-exec --no-startup-id sleep 7 && firefox
+exec --no-startup-id sleep 3 && firefox
 
 
 #################
@@ -331,8 +331,11 @@ exec --no-startup-id blueberry-tray
 # Networkmanager-applet
 exec --no-startup-id nm-applet
 
+# Pulseaudio 
+exec --no-startup-id pasystray
+
 # Clipman-applet
-#exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-clipman
 
 ####################
 #  Floating rules  #
