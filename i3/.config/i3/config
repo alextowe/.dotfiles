@@ -119,7 +119,7 @@ bindsym $mod+r mode "resize"
 #################
 
 # Start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec /usr/bin/alacritty
 
 # Kill focused window
 bindsym $mod+q kill
@@ -225,7 +225,7 @@ bindsym $mod+y exec /usr/local/bin/switch-audio-port
 bindsym $mod+m workspace $ws10, exec /usr/bin/firefox
 bindsym $mod+Shift+m workspace $ws7, exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym $mod+z exec $TERMINAL -T neovim -e nvim
+bindsym $mod+z exec /usr/bin/alacritty --class ide -e nvim
 bindsym $mod+a exec pavucontrol
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
@@ -270,16 +270,17 @@ workspace $ws7 output HDMI-0
 workspace $ws6 output DP-4
 
 # Bind program to workspace
-assign [title="neovim"] $ws9
 assign [class="Gthumb"] $ws5
 assign [class="Thunar"] $ws6
-assign [class="Xfce4-terminal"] $ws8 
+assign [class="Alacritty"] $ws8 
+assign [class="ide"] $ws9
 
 # Automatic set focus to new window 
-for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
-for_window [class=Thunar] focus
 for_window [class=Gthumb] focus
+for_window [class=Thunar] focus
+for_window [class=Alacritty] focus
+for_window [class=ide] focus
 
 
 ##############################################
@@ -327,6 +328,7 @@ exec --no-startup-id sleep 3 && firefox
 
 # Networkmanager-applet
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 
 
 ####################
@@ -347,6 +349,7 @@ for_window [class="Nm-connection-editor" instance="nm-connection-editor"] floati
 for_window [class="File-roller" instance="file-roller"] floating enable resize set 640 480 move postion center
 for_window [class="Avahi-discover" instance="avahi-discover"] floating enable resize set 640 480 move postion center
 for_window [class="lstopo"] floating enable resize set 640 480 move postion center
+for_window [class="feh"] floating enable move postion center
 
 
 ########################################
@@ -367,11 +370,11 @@ set $mediumgrey       #8b8b8b
 set $yellowbrown      #e1b700
 
 # Define colors for windows
-#Class                  Border      Bground     Text        Indicator     Child_border
-client.focused          $mediumgrey $grey       $darkgrey   $purple       $mediumgrey
-client.unfocused        $mediumgrey $darkgrey   $grey       $purple       $darkgrey
-client.focused_inactive $lightblue  $mediumgrey $darkgrey   $purple       $darkgrey
-client.urgent           $urgentred  $urgentred  $white      $yellowbrown  $yellowbrown
+#Class                  Border        Bground       Text          Indicator       Child_border
+client.focused          $grey         $grey         $darkgrey     $grey           $grey
+client.unfocused        $mediumgrey   $darkgrey     $mediumgrey   $mediumgrey     $mediumgrey
+client.focused_inactive $mediumgrey   $mediumgrey   $darkgrey     $mediumgrey     $mediumgrey
+client.urgent           $urgentred    $urgentred    $white        $yellowbrown    $yellowbrown
 
 
 ##################
@@ -393,10 +396,10 @@ bar {
 		    background          $darkgrey
 		    statusline          $white
         #                   Border        Bground       Text        Indicator
-		    focused_workspace   $mediumgrey   $grey         $darkgrey   $purple
-		    active_workspace    $lightblue    $mediumgrey   $darkgrey   $purple
-		    inactive_workspace  $darkgrey     $darkgrey     $grey       $purple
-		    urgent_workspace    $urgentred    $urgentred    $white      $purple
+		    focused_workspace   $grey         $grey         $darkgrey   $grey
+		    active_workspace    $mediumgrey   $mediumgrey   $darkgrey   $mediumgrey
+		    inactive_workspace  $mediumgrey   $darkgrey     $mediumgrey $mediumgrey
+		    urgent_workspace    $urgentred    $urgentred    $white      $yellowbrown
 	  }
 }
 
