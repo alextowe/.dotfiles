@@ -41,16 +41,25 @@ sudo su - <<END
 printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" > /etc/sudoers.d/10-installer
 END
 
+# Install yay
+mkdir $HOME/Sources
+git clone https://aur.archlinux.org/yay.git
+cd $HOME/Sources
+makepkg -si
+
 # Install packages
 echo "Installing packages..."
 yay -Syu --noconfirm
 yay -S neovim ranger stow postgresql rofi-greenclip pasystray ttf-nerd-fonts-symbols-mono nerd-fonts-jetbrains-mono-160 discord blueberry nodejs --noconfirm
 
+# Enable lightdm
+sudo systemctl enable lightdm
+
 # Change default editor
-sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
+#sudo sed -i "s/EDITOR=nano/EDITOR=nvim/" /etc/environment
 
 # Change dunst notification location
-sed -i "s/origin = bottom-right/origin = top-right/" $HOME/.config/dunst/dunstrc
+#sed -i "s/origin = bottom-right/origin = top-right/" $HOME/.config/dunst/dunstrc
 
 # Postgresql config
 sudo -iu postgres bash <<END
