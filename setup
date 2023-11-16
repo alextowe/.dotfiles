@@ -50,7 +50,7 @@ makepkg -si
 # Install packages
 echo "Installing packages..."
 yay -Syu --noconfirm
-yay -S neovim ranger stow postgresql rofi-greenclip pasystray ttf-nerd-fonts-symbols-mono nerd-fonts-jetbrains-mono-160 discord blueberry nodejs --noconfirm
+yay -S xorg-server xorg-apps xorg-xinit lightdm lightdm-gtk-greeter numlockx i3-wm i3status alacritty reflector dunst neovim ranger stow postgresql rofi-greenclip pasystray ttf-nerd-fonts-symbols-mono nerd-fonts-jetbrains-mono-160 discord blueberry nodejs --noconfirm
 
 # Enable lightdm
 sudo systemctl enable lightdm
