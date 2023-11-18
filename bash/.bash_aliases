@@ -2,7 +2,7 @@
 #  Editor control shortcuts  #
 ##############################
 
-alias e="$EDITOR"
+alias edit="$EDITOR"
 alias se="sudoedit"
 alias clearedit="rm $HOME/.local/state/nvim/swap/*"
 alias sb="source $HOME/.bashrc && echo 'bash restarted!'"
