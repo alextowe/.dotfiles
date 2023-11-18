@@ -1,0 +1,21 @@
+#!/bin/bash
+
+read -p "Enter key name: " KEY_NAME
+ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f $HOME/.ssh/$KEY_NAME
+eval "$(ssh-agent -s)"
+ssh-add $HOME/.ssh/$KEY_NAME
+
+echo -e "Copy the public key below and add it to your github account."
+cat $HOME/.ssh/$KEY_NAME.pub
+read -p "Hit ENTER to continue." ENTER
+
+touch $HOME/.ssh/config
+echo "
+    Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/$KEY_NAME
+        IdentitiesOnly yes" >>$HOME/.ssh/config
+
+echo -e "Testing SSH key....."
+ssh -T git@github.com

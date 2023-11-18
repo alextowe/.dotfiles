@@ -8,6 +8,7 @@
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 # Variables
+export PATH=$HOME/.local/bin:$PATH
 export EDITOR=/usr/bin/nvim
 export SUDO_EDITOR=/usr/bin/nvim
 export DEV_DIR=$HOME/dev/
