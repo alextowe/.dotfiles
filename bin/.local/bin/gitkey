@@ -8,7 +8,7 @@ ssh-add $HOME/.ssh/$KEY_NAME
 
 echo -e "Copy the public key below and add it to your github account."
 cat $HOME/.ssh/$KEY_NAME.pub
-read -p "Hit ENTER to continue." ENTER
+read -p "Hit ENTER to test connection." ENTER
 
 touch $HOME/.ssh/config
 echo "

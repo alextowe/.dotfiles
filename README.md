@@ -40,6 +40,7 @@ Display:
 * picom
 * pavucontrol
 * pasystray
+* nm-applet
 * rofi
 * rofi-greenclip
 * dunst
