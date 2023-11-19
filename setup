@@ -21,12 +21,12 @@ yay -S --noconfirm \
 	neovim \
 	ranger \
 	reflector \
-	man-db \
-	man-pages \
-	numlockx \
 	less \
 	which \
 	stow \
+	man-db \
+	man-pages \
+	numlockx \
 	os-prober \
 	ntfs-3g \
 	nodejs \
@@ -48,20 +48,24 @@ yay -S --noconfirm \
 	picom \
 	pavucontrol \
 	pasystray \
-	nm-applet \
+	network-manager-applet \
 	rofi \
 	rofi-greenclip \
 	dunst \
 	xdg-user-dirs \
-	xbacklightx \
 	xautolock \
 	feh \
 	arandr \
 	alacritty \
 	thunar \
+	gvfs \
 	firefox \
 	discord \
 	gthumb \
+	scrot \
+	arc-gtk-theme \
+	arc-icon-theme \
+	xcursor-breeze \
 	noto-fonts \
 	ttf-ubuntu-font-family \
 	ttf-dejavu \
@@ -104,20 +108,19 @@ sudo systemctl start postgresql.service
 
 # Create user directories 
 cd $HOME && mkdir \
-	dskt/ \
-	dnld/ \
-	tmpl/ \
-	pub/ \
-	docs/ \
-	mus/ \
-	pics/ \
-	vids/ \
+	desktop/ \
+	downloads/ \
+	templates/ \
+	public/ \
+	documents/ \
+	music/ \
+	pictures/ \
+	videos/ \
 	dev/ \
 
 # Install lazyvim
 mv $HOME/.config/nvim{,.bak}
 git clone https://github.com/LazyVim/starter $HOME/.config/nvim
-
 
 # Use stow to create symlinks
 stow --adopt */ -t ~

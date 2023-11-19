@@ -7,12 +7,12 @@ The following packages will be installed during setup.
 * neovim
 * ranger
 * reflector
-* man-db
-* man-pages
-* numlockx
 * less
 * which
 * stow
+* man-db
+* man-pages
+* numlockx
 * os-prober
 * ntfs-3g
 * nodejs
@@ -31,7 +31,6 @@ The following packages will be installed during setup.
 * xorg-xinit
 * nvidia
 * lightdm
-* lightdm-gtk-greeter
 * dex
 * i3-wm
 * i3status
@@ -41,7 +40,7 @@ The following packages will be installed during setup.
 * picom
 * pavucontrol
 * pasystray
-* nm-applet
+* network-manager-applet
 * rofi
 * rofi-greenclip
 * dunst
@@ -51,14 +50,16 @@ The following packages will be installed during setup.
 * arandr
 * alacritty
 * thunar
+* gvfs
 * firefox
 * discord
+* gthumb
+* scrot
 
-### GTK Themes:
-
-
-
-### Fonts:
+### Appearance:
+* arc-gtk-theme
+* arc-icon-theme
+* xcursor-breeze
 * noto-fonts 
 * ttf-ubuntu-font-family 
 * ttf-dejavu 
