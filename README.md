@@ -25,7 +25,7 @@ The following packages will be installed during setup.
 * intel-ucode
 
 
-Display:
+### Display:
 * xorg-server
 * xorg-apps
 * xorg-xinit
@@ -36,6 +36,7 @@ Display:
 * i3-wm
 * i3status
 * i3lock
+* i3exit
 * perl-anyevent-i3
 * picom
 * pavucontrol
@@ -45,7 +46,7 @@ Display:
 * rofi-greenclip
 * dunst
 * xdg-user-dirs
-* xautolockx
+* xautolock
 * feh
 * arandr
 * alacritty
@@ -53,11 +54,11 @@ Display:
 * firefox
 * discord
 
-GTK Themes:
+### GTK Themes:
 
 
 
-Fonts:
+### Fonts:
 * noto-fonts 
 * ttf-ubuntu-font-family 
 * ttf-dejavu 

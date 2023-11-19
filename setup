@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Skip password prompt for sudo commands
-sudo su - <<END
+sudo su - << END
 printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" > /etc/sudoers.d/10-wheel
 END
 
@@ -9,10 +9,10 @@ END
 sudo sed -i "s/#Color/Color/" /etc/pacman.conf
 
 # Install yay
-mkdir $HOME/Sources
-git clone https://aur.archlinux.org/yay.git
-cd $HOME/Sources
+git clone https://aur.archlinux.org/yay.git $HOME/yay
+cd $HOME/yay
 makepkg -si
+rm -rf $HOME/yay
 
 # Install packages
 yay -Syu --noconfirm
@@ -39,11 +39,11 @@ yay -S --noconfirm \
 	xorg-xinit \
 	nvidia \
 	lightdm \
-	lightdm-gtk-greeter \
 	dex \
 	i3-wm \
 	i3status \
  	i3lock \
+	i3exit \
 	perl-anyevent-i3 \
 	picom \
 	pavucontrol \
@@ -53,13 +53,15 @@ yay -S --noconfirm \
 	rofi-greenclip \
 	dunst \
 	xdg-user-dirs \
-	xautolockx \
+	xbacklightx \
+	xautolock \
 	feh \
 	arandr \
 	alacritty \
 	thunar \
 	firefox \
 	discord \
+	gthumb \
 	noto-fonts \
 	ttf-ubuntu-font-family \
 	ttf-dejavu \
@@ -91,8 +93,6 @@ sudo systemctl start reflector.service
 sudo systemctl enable reflector.timer
 sudo systemctl start reflector.timer
 
-# Enable update notifications?
-
 # Enable psql
 sudo -iu postgres bash << END
 initdb -D /var/lib/postgres/data
@@ -102,15 +102,22 @@ sudo systemctl start postgresql.service
 
 # Add windows to boot menu
 
-# Update user directories 
-xdg-user-dirs-update
+# Create user directories 
+cd $HOME && mkdir \
+	dskt/ \
+	dnld/ \
+	tmpl/ \
+	pub/ \
+	docs/ \
+	mus/ \
+	pics/ \
+	vids/ \
+	dev/ \
 
 # Install lazyvim
 mv $HOME/.config/nvim{,.bak}
 git clone https://github.com/LazyVim/starter $HOME/.config/nvim
 
-# Create dev directory
-mkdir $HOME/dev/
 
 # Use stow to create symlinks
 stow --adopt */ -t ~
