@@ -147,12 +147,12 @@ bindsym $mod+d exec rofi -modi drun -show drun \
 
 # Open rofi menu for active windows
 bindsym $mod+x exec rofi -show window \
-		-config $HOME/.config/rofi/rofidmenu.rasi
+		-config $HOME/.config/rofi/config.rasi
 
 # Open rofi menu for clipboard 
 exec --no-startup-id greenclip daemon>/dev/null
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
-		-config $HOME/.config/rofi/rofidmenu.rasi
+		-config $HOME/.config/rofi/config.rasi
 
 # Lock, exit, suspend, hibernate, reboot and poweroff
 set $system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (p)oweroff
