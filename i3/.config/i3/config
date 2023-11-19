@@ -235,11 +235,11 @@ exec --no-startup-id xset s 600 dpms 600 600 600
 # Set autolocker to start after 11 minutes of inactivity
 exec --no-startup-id xautolock -time 11 -locker "i3exit lock"
 
-# Desktop notifications
-exec --no-startup-id /usr/bin/dunst
-
 # Start picom
 exec --no-startup-id /usr/bin/picom
+
+# Desktop notifications
+exec --no-startup-id /usr/bin/dunst
 
 
 #################
