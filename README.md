@@ -51,6 +51,7 @@ The following packages will be installed during setup.
 * alacritty
 * thunar
 * gvfs
+* nss-mdns
 * firefox
 * discord
 * gthumb

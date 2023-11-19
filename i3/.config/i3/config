@@ -49,8 +49,8 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 mode "resize" {
 	bindsym j resize shrink width 10 px or 10 ppt
 	bindsym k resize grow height 10 px or 10 ppt
-	bindsym l resize shrink height 10 px or 10 ppt
-	bindsym ntilde resize grow width 10 px or 10 ppt
+	bindsym i resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
 
 	# Same bindings, but for the arrow keys
 	bindsym Left resize shrink width 10 px or 10 ppt
@@ -182,11 +182,11 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6:"
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # Use workspaces on different displays
 workspace $ws5 output DP-4
@@ -264,6 +264,8 @@ for_window [floating] border normal 1 move position center
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Arandr"] floating enable 
 for_window [class="feh"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Avahi-discover"] floating enable
 
 
 ########################################
@@ -297,7 +299,6 @@ bar {
 	separator_symbol "  :  :  "
 	position top
 	tray_output primary
-	strip_workspace_numbers yes
 	tray_padding 0
 
     # Define colors for bar

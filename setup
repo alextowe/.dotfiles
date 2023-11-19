@@ -59,6 +59,7 @@ yay -S --noconfirm \
 	alacritty \
 	thunar \
 	gvfs \
+	nss-mdns \
 	firefox \
 	discord \
 	gthumb \
@@ -103,6 +104,10 @@ initdb -D /var/lib/postgres/data
 END
 sudo systemctl enable postgresql.service
 sudo systemctl start postgresql.service
+
+# Enable avahi
+sudo systemctl enable avahi-daemon.service
+sudo systemctl start avahi-daemon.service
 
 # Add windows to boot menu
 
