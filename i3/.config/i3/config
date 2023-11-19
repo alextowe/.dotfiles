@@ -238,9 +238,6 @@ exec --no-startup-id xautolock -time 11 -locker "i3exit lock"
 # Desktop notifications
 exec --no-startup-id /usr/bin/dunst
 
-# Autostart firefox 
-exec --no-startup-id sleep 3 && firefox
-
 
 #################
 #  System tray  #
@@ -261,7 +258,6 @@ exec --no-startup-id pasystray
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable move position center
 for_window [class="Arandr"] floating enable move position center
 for_window [class="feh"] floating enable move postion center
-for_window [class="Lxappearance"] floating enable move postion center
 
 
 ########################################
