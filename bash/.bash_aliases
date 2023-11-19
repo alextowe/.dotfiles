@@ -12,10 +12,16 @@ alias i3c="$EDITOR $HOME/.config/i3/config"
 #  Basic shortcuts  #
 #####################
 
+create_symlinks() {
+	cd $HOME/.dotfiles && stow --adopt */ -t $HOME/
+	cd $HOME/.dotfiles && git restore .
+}
+
 alias ls='ls --color=auto'
 alias la="ls -alF"
 alias r="ranger"
 alias home="cd $HOME"
+alias links="create_symlinks"
 
 ###################
 #  Git shortcuts  #
