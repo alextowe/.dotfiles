@@ -142,20 +142,20 @@ bindsym $mod+a exec pavucontrol
 bindsym Print exec scrot $HOME/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Open rofi menu
-bindsym $mod+d exec rofi -modi drun -show drun \
+bindsym $mod+d exec rofi -modi drun -show drun -m primary \
 		-config $HOME/.config/rofi/config.rasi
 
 # Open rofi menu for active windows
-bindsym $mod+x exec rofi -show window \
+bindsym $mod+x exec rofi -show window -m primary \
 		-config $HOME/.config/rofi/config.rasi
 
 # Open rofi menu for clipboard 
 exec --no-startup-id greenclip daemon>/dev/null
-bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
+bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -m primary \
 		-config $HOME/.config/rofi/config.rasi
 
 # Lock, exit, suspend, hibernate, reboot and poweroff
-set $system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (p)oweroff
+set $system System control:  (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (p)oweroff
 mode "$system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -238,6 +238,9 @@ exec --no-startup-id xautolock -time 11 -locker "i3exit lock"
 # Desktop notifications
 exec --no-startup-id /usr/bin/dunst
 
+# Start picom
+exec --no-startup-id /usr/bin/picom
+
 
 #################
 #  System tray  #
@@ -254,10 +257,13 @@ exec --no-startup-id pasystray
 #  Floating rules  #
 ####################
 
+# Set title bars for floating windows
+for_window [floating] border normal 1 move position center 
+
 # Allow floating for certain applications  
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable move position center
-for_window [class="Arandr"] floating enable move position center
-for_window [class="feh"] floating enable move postion center
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable 
+for_window [class="feh"] floating enable
 
 
 ########################################
@@ -265,24 +271,19 @@ for_window [class="feh"] floating enable move postion center
 ########################################
 
 # Define colors variables
-set $darkbluetrans    #08052be6
-set $darkblue         #08052b
-set $lightblue        #5294e2
-set $urgentred        #e53935
-set $white            #ffffff
-set $black            #000000
-set $purple           #e345ff
-set $darkgrey         #383c4a
-set $grey             #b0b5bd
-set $mediumgrey       #8b8b8b
-set $yellowbrown      #e1b700
+set $darker 	#2f343f
+set $dark		#383c4a
+set $light		#b0b5bd
+set $lighter	#8b8b8b
+set $white		#ffffff
+set $purple		#e345ff
 
 # Define colors for windows
-#Class                  Border        Bground       Text          Indicator       Child_border
-client.focused          $grey         $grey         $darkgrey     $grey           $grey
-client.unfocused        $mediumgrey   $darkgrey     $mediumgrey   $mediumgrey     $mediumgrey
-client.focused_inactive $mediumgrey   $mediumgrey   $darkgrey     $mediumgrey     $mediumgrey
-client.urgent           $urgentred    $urgentred    $white        $yellowbrown    $yellowbrown
+#Class					Border			Bground			Text		Indicator	Child_border
+client.focused          $white			$darker      	$white   	$white		$white
+client.unfocused        $lighter		$dark   		$light   	$light		$lighter
+client.focused_inactive $lighter		$darker   		$light   	$light		$lighter
+client.urgent           $white			$darker      	$white   	$white		$white
 
 
 ##################
@@ -297,18 +298,19 @@ bar {
 	position top
 	tray_output primary
 	strip_workspace_numbers yes
-	tray_padding 1
+	tray_padding 0
 
     # Define colors for bar
 	colors {
 		separator           $purple
-		background          $darkgrey
+		background          $darker
 		statusline          $white
-	#                   Border        Bground       Text        Indicator
-		focused_workspace   $grey         $grey         $darkgrey   $grey
-		active_workspace    $mediumgrey   $mediumgrey   $darkgrey   $mediumgrey
-		inactive_workspace  $mediumgrey   $darkgrey     $mediumgrey $mediumgrey
-		urgent_workspace    $urgentred    $urgentred    $white      $yellowbrown
+
+		#                   Border			Bground      	Text       	Indicator
+		focused_workspace   $white			$darker      	$white   	$white
+		active_workspace    $lighter		$darker   		$light   	$light
+		inactive_workspace  $lighter		$darker     	$light 		$light
+		urgent_workspace    $white			$darker    		$white      $white
 	}
 }
 
