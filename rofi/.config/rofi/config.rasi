@@ -1,0 +1,33 @@
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+* {
+    normal-background:           rgba ( 45, 48, 59, 1 % );
+    alternate-normal-background: rgba ( 45, 48, 59, 1 % );
+}
+
+configuration {
+    font:                "Noto Sans Regular 11";
+    show-icons:          true;
+    icon-theme:          "Arc";
+    display-drun:        "Apps";
+    drun-display-format: "{name}";
+    scroll-method:       0;
+    disable-history:     false;
+    sidebar-mode:        false;
+}
+
+window {
+    border:           0;
+    padding:          40;
+}
+
+listview {
+    lines:   10;
+    columns: 3;
+    fixed-height: 0;
+    border:       2px 0px 0px;
+    border-color: @separatorcolor;
+    spacing:      7px;
+    scrollbar:    false;
+    padding:      7px 0px 0px;
+}
