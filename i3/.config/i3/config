@@ -273,19 +273,18 @@ for_window [class="Avahi-discover"] floating enable
 ########################################
 
 # Define colors variables
-set $darker 	#2f343f
-set $dark		#383c4a
-set $light		#b0b5bd
-set $lighter	#8b8b8b
-set $white		#ffffff
-set $purple		#e345ff
+set $darker 	#000000
+set $dark		#151515
+set $light		#656565
+set $lighter	#ffffff
+set $bright		#00FF00
 
 # Define colors for windows
-#Class					Border			Bground			Text		Indicator	Child_border
-client.focused          $white			$darker      	$white   	$white		$white
-client.unfocused        $lighter		$dark   		$light   	$light		$lighter
-client.focused_inactive $lighter		$darker   		$light   	$light		$lighter
-client.urgent           $white			$darker      	$white   	$white		$white
+#Class					Border		Bground		Text		Indicator	Child_border
+client.focused          $lighter	$darker     $bright   	$lighter	$lighter
+client.unfocused        $light		$darker   	$light  	$dark		$light
+client.focused_inactive $light		$darker   	$bright   	$dark		$light
+client.urgent           $lighter	$darker     $lighter   	$lighter	$lighter
 
 
 ##################
@@ -303,15 +302,15 @@ bar {
 
     # Define colors for bar
 	colors {
-		separator           $purple
+		separator           $bright
 		background          $darker
-		statusline          $white
+		statusline          $lighter
 
-		#                   Border			Bground      	Text       	Indicator
-		focused_workspace   $white			$darker      	$white   	$white
-		active_workspace    $lighter		$darker   		$light   	$light
-		inactive_workspace  $lighter		$darker     	$light 		$light
-		urgent_workspace    $white			$darker    		$white      $white
+		#                   Border		Bground     Text       	Indicator
+		focused_workspace   $lighter	$darker     $bright   	$lighter
+		active_workspace    $light		$darker   	$bright   	$dark
+		inactive_workspace  $light		$darker     $light 		$dark
+		urgent_workspace    $lighter	$darker    	$lighter	$lighter
 	}
 }
 

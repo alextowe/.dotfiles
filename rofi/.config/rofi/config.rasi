@@ -1,8 +1,10 @@
 @theme "/usr/share/rofi/themes/Arc-Dark.rasi"
 
 * {
-    normal-background:           rgba ( 45, 48, 59, 1 % );
-    alternate-normal-background: rgba ( 45, 48, 59, 1 % );
+    normal-background:              rgba ( 45, 48, 59, 1 % );
+    alternate-normal-background:    rgba ( 45, 48, 59, 1 % );   
+    selected-normal-background:     rgba ( 45, 48, 59, 1 % );
+    selected-normal-foreground:     rgba (227, 69, 255, 100 % );
 }
 
 configuration {
@@ -17,6 +19,7 @@ configuration {
 }
 
 window {
+    background-color: rgba(15, 15, 15, 95 % );
     border:           0;
     padding:          40;
 }
