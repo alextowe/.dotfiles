@@ -49,18 +49,14 @@ The following packages will be installed during setup.
 * feh
 * arandr
 * alacritty
-* thunar
-* gvfs
-* nss-mdns
 * firefox
 * discord
-* gthumb
 * scrot
 
 ### Appearance:
-* arc-gtk-theme
+* arc-gtk-theme +
 * arc-icon-theme
-* xcursor-breeze
+* xcursor-breeze 
 * noto-fonts 
 * ttf-ubuntu-font-family 
 * ttf-dejavu 
