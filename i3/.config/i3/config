@@ -282,8 +282,8 @@ set $bright		#00FF00
 # Define colors for windows
 #Class					Border		Bground		Text		Indicator	Child_border
 client.focused          $lighter	$darker     $bright   	$lighter	$lighter
-client.unfocused        $light		$darker   	$light  	$dark		$light
-client.focused_inactive $light		$darker   	$bright   	$dark		$light
+client.unfocused        $light		$darker   	$light  	$light		$light
+client.focused_inactive $light		$darker   	$bright   	$light		$light
 client.urgent           $lighter	$darker     $lighter   	$lighter	$lighter
 
 
@@ -308,8 +308,8 @@ bar {
 
 		#                   Border		Bground     Text       	Indicator
 		focused_workspace   $lighter	$darker     $bright   	$lighter
-		active_workspace    $light		$darker   	$bright   	$dark
-		inactive_workspace  $light		$darker     $light 		$dark
+		active_workspace    $light		$darker   	$bright   	$light
+		inactive_workspace  $light		$darker     $light 		$light
 		urgent_workspace    $lighter	$darker    	$lighter	$lighter
 	}
 }

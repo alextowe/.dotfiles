@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Skip password prompt for sudo commands
-sudo su - << END
+sudo su - <<END
 printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" > /etc/sudoers.d/10-wheel
 END
 
-# Enable color in pacman 
+# Enable color in pacman
 sudo sed -i "s/#Color/Color/" /etc/pacman.conf
 
 # Install yay
@@ -42,7 +42,7 @@ yay -S --noconfirm \
 	dex \
 	i3-wm \
 	i3status \
- 	i3lock \
+	i3lock \
 	i3exit \
 	perl-anyevent-i3 \
 	picom \
@@ -70,8 +70,7 @@ yay -S --noconfirm \
 	ttf-liberation \
 	ttf-droid \
 	ttf-roboto \
-	terminus-font \
-
+	terminus-font
 
 # Enable lightdm
 sudo systemctl enable lightdm.service
@@ -95,19 +94,15 @@ sudo systemctl enable reflector.timer
 sudo systemctl start reflector.timer
 
 # Enable psql
-sudo -iu postgres bash << END
+sudo -iu postgres bash <<END
 initdb -D /var/lib/postgres/data
 END
 sudo systemctl enable postgresql.service
 sudo systemctl start postgresql.service
 
-# Enable avahi
-sudo systemctl enable avahi-daemon.service
-sudo systemctl start avahi-daemon.service
-
 # Add windows to boot menu
 
-# Create user directories 
+# Create user directories
 cd $HOME && mkdir \
 	desktop/ \
 	downloads/ \
@@ -117,14 +112,14 @@ cd $HOME && mkdir \
 	music/ \
 	pictures/ \
 	videos/ \
-	dev/ \
+	dev/
 
 # Install lazyvim
 mv $HOME/.config/nvim{,.bak}
 git clone https://github.com/LazyVim/starter $HOME/.config/nvim
 
 # Use stow to create symlinks
-stow --adopt */ -t ~
-git restore .
+cd $HOME/.dotfiles/ && stow --adopt */ -t $HOME
+cd $HOME/.dotfiles/ && git restore .
 
 printf "\nAll finsihed. Reboot for configuration to take effect.\n\n"
