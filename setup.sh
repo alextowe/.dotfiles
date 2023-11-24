@@ -5,8 +5,9 @@ sudo su - <<END
 printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" > /etc/sudoers.d/10-wheel
 END
 
-# Enable color in pacman
+# Enable color and parallel downloads in pacman
 sudo sed -i "s/#Color/Color/" /etc/pacman.conf
+sudo sed -i "s/#ParallelDownloads/ParallelDownloads/" /etc/pacman.conf
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git $HOME/yay
@@ -30,8 +31,10 @@ yay -S --noconfirm \
 	ntfs-3g \
 	nodejs \
 	postgresql \
+	networkmanager \
 	nftables \
 	ufw \
+	openssh \
 	intel-ucode \
 	xorg-server \
 	xorg-apps \
@@ -84,6 +87,10 @@ sudo systemctl enable ufw.service
 sudo systemctl start ufw.service
 sudo ufw allow SSH
 sudo ufw enable
+
+# Enable network manager
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
 
 # Enable reflector updates
 sudo sed -i "s/# --country France,Germany/--country US/" /etc/xdg/reflector/reflector.conf
