@@ -49,10 +49,6 @@ yay -S --noconfirm \
 	perl-anyevent-i3 \
 	picom \
 	pavucontrol \
-	pasystray \
-	network-manager-applet \
-	rofi \
-	rofi-greenclip \
 	dunst \
 	xdg-user-dirs \
 	xautolock \
@@ -74,13 +70,13 @@ yay -S --noconfirm \
 	ttf-roboto \
 	terminus-font
 
-# Enable lightdm
-sudo systemctl enable lightdm.service
-
 # Enable autologin
 sudo sed -i "s/#autologin-user=/autologin-user=$USER/" /etc/lightdm/lightdm.conf
 sudo groupadd -r autologin
 sudo gpasswd -a $USER autologin
+
+# Enable lightdm
+sudo systemctl enable lightdm.service
 
 # Enable ufw
 sudo systemctl enable ufw.service
