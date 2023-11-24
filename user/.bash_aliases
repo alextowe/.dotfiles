@@ -32,6 +32,29 @@ git_add_commit() {
 	git commit -m "$@"
 }
 
+git_create_ssh_key() {
+	read -p "Enter key name: " KEY_NAME
+	GIT_EMAIL="$(git config --global user.email)"
+	ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f $HOME/.ssh/$KEY_NAME
+	eval "$(ssh-agent -s)"
+	ssh-add $HOME/.ssh/$KEY_NAME
+
+	echo -e "Copy the public key below and add it to your github account."
+	cat $HOME/.ssh/$KEY_NAME.pub
+	read -p "Hit ENTER to test connection." ENTER
+
+	touch $HOME/.ssh/config
+	echo "
+      Host github.com
+          HostName github.com
+          User git
+          IdentityFile ~/.ssh/$KEY_NAME
+          IdentitiesOnly yes" >>$HOME/.ssh/config
+
+	echo -e "Testing SSH key....."
+	ssh -T git@github.com
+}
+
 alias gs="git status"
 alias gl="git log"
 alias gd="git diff"
@@ -39,6 +62,7 @@ alias gp="git push"
 alias gr="git restore ."
 alias gu="git restore --staged ."
 alias gac="git_add_commit"
+alias gitkey="git_create_ssh_key"
 
 ##########################
 #  Postgresql shortcuts  #

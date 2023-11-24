@@ -66,12 +66,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-#################
-#  Keybindings  #
-#################
-
-# Start a terminal
-bindsym $mod+Return exec /usr/bin/alacritty
+########################
+#  System keybindings  #
+########################
 
 # Kill focused window
 bindsym $mod+q kill
@@ -133,29 +130,8 @@ bindsym $mod+space focus mode_toggle
 # Focus the parent container
 bindsym $mod+p focus parent
 
-# App shortcuts
-bindsym $mod+m workspace $ws10, exec /usr/bin/firefox
-bindsym $mod+Shift+m workspace $ws7, exec /usr/bin/firefox
-bindsym $mod+n exec /usr/bin/thunar
-bindsym $mod+z exec /usr/bin/alacritty --class ide -e nvim
-bindsym $mod+a exec pavucontrol
-bindsym Print exec scrot $HOME/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/$(date +"%Y-%m-%d-%T")-screenshot.png"
-
-# Open rofi menu
-bindsym $mod+d exec rofi -modi drun -show drun -m primary \
-		-config $HOME/.config/rofi/config.rasi
-
-# Open rofi menu for active windows
-bindsym $mod+x exec rofi -show window -m primary \
-		-config $HOME/.config/rofi/config.rasi
-
-# Open rofi menu for clipboard 
-exec --no-startup-id greenclip daemon>/dev/null
-bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -m primary \
-		-config $HOME/.config/rofi/config.rasi
-
 # Lock, exit, suspend, hibernate, reboot and poweroff
-set $system System control:  (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (p)oweroff
+set $system System control:  [l]ock, [e]xit, [s]uspend, [h]ibernate, [r]eboot, [p]oweroff
 mode "$system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -171,6 +147,34 @@ mode "$system" {
 
 bindsym $mod+BackSpace mode "$system"
 
+
+#####################
+#  App keybindings  #
+#####################
+
+# Start a terminal
+bindsym $mod+Return exec /usr/bin/alacritty
+
+# Start firefox on workspace 7
+bindsym $mod+Shift+m exec /usr/bin/firefox --no-remote -P workspace7 --class firefoxws7
+
+# Start firefox on workspace 10
+bindsym $mod+m exec /usr/bin/firefox --no-remote -P workspace10 --class firefoxws10
+
+# Open emacs
+bindsym $mod+z exec /usr/bin/emacs --name=ide
+
+# Open pavucontrol
+bindsym $mod+a exec pavucontrol
+
+# Open discord
+bindsym $mod+d exec discord
+
+# Screenshot of entire screen
+bindsym Print exec scrot $HOME/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
+
+# Open arandr
+bindsym $mod+Shift+a arandr
 
 ########################
 #  Workspace behavior  #
@@ -190,24 +194,24 @@ set $ws10 "10"
 
 # Use workspaces on different displays
 workspace $ws5 output DP-4
-workspace $ws6 output DP-4
+workspace $ws6 output HDMI-0
 workspace $ws7 output HDMI-0
 workspace $ws8 output HDMI-0
 workspace $ws9 output DP-4
 workspace $ws10 output DP-4
 
 # Bind program to workspace
-assign [class="Gthumb"] $ws5
-assign [class="Thunar"] $ws6
-assign [class="Alacritty"] $ws8 
-assign [class="ide"] $ws9
+assign [class="discord"] $ws6
+assign [class="firefoxws7"] $ws7
+assign [class="Alacritty"] $ws8
+assign [class="Emacs" instance="ide"] $ws9
+assign [class="firefoxws10"] $ws10
 
 # Automatic set focus to new window 
+for_window [class=discord] focus
 for_window [class=(?i)firefox] focus
-for_window [class=Gthumb] focus
-for_window [class=Thunar] focus
 for_window [class=Alacritty] focus
-for_window [class=ide] focus
+for_window [class=Emacs instance=ide] focus
 
 
 ##############################################
@@ -241,6 +245,18 @@ exec --no-startup-id /usr/bin/picom
 # Desktop notifications
 exec --no-startup-id /usr/bin/dunst
 
+# Start firefox on workspace 7
+exec --no-startup-id /usr/bin/firefox --no-remote -P workspace7 --class firefoxws7
+
+# Start alacritty on workspace 8
+exec --no-startup-id /usr/bin/alacritty
+
+# Start emacs on workspace 9
+exec --no-startup-id emacs --name=ide
+
+# Start firefox on workspace 10
+exec --no-startup-id /usr/bin/firefox --no-remote -P workspace10 --class firefoxws10
+
 
 #################
 #  System tray  #
@@ -250,7 +266,7 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id nm-applet
 
 # Pulse audio system tray 
-exec --no-startup-id pasystray
+#exec --no-startup-id pasystray
 
 
 ####################
@@ -263,9 +279,6 @@ for_window [floating] border normal 1 move position center
 # Allow floating for certain applications  
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Arandr"] floating enable 
-for_window [class="feh"] floating enable
-for_window [class="Nm-connection-editor"] floating enable
-for_window [class="Avahi-discover"] floating enable
 
 
 ########################################

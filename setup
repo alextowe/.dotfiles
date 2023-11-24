@@ -18,7 +18,6 @@ rm -rf $HOME/yay
 yay -Syu --noconfirm
 yay -S --noconfirm \
 	bash-completion \
-	neovim \
 	ranger \
 	reflector \
 	less \
@@ -113,10 +112,6 @@ cd $HOME && mkdir \
 	pictures/ \
 	videos/ \
 	dev/
-
-# Install lazyvim
-mv $HOME/.config/nvim{,.bak}
-git clone https://github.com/LazyVim/starter $HOME/.config/nvim
 
 # Use stow to create symlinks
 cd $HOME/.dotfiles/ && stow --adopt */ -t $HOME
