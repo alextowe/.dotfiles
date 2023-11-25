@@ -9,8 +9,8 @@
 
 # Variables
 export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH
-export EDITOR=/usr/bin/nvim
-export SUDO_EDITOR=/usr/bin/nvim
+export EDITOR=/usr/bin/emacs
+export SUDO_EDITOR=/usr/bin/emacs
 export DEV_DIR=$HOME/dev/
 
 [[ "$(whoami)" = "root" ]] && return
