@@ -26,12 +26,12 @@ yay -S --noconfirm \
 	stow \
 	man-db \
 	man-pages \
+	emacs \
 	numlockx \
 	os-prober \
 	ntfs-3g \
 	nodejs \
 	postgresql \
-	networkmanager \
 	nftables \
 	ufw \
 	openssh \
@@ -83,10 +83,6 @@ sudo systemctl enable ufw.service
 sudo systemctl start ufw.service
 sudo ufw allow SSH
 sudo ufw enable
-
-# Enable network manager
-sudo systemctl enable NetworkManager.service
-sudo systemctl start NetworkManager.service
 
 # Enable reflector updates
 sudo sed -i "s/# --country France,Germany/--country US/" /etc/xdg/reflector/reflector.conf

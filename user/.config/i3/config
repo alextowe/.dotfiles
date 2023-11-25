@@ -156,10 +156,10 @@ bindsym $mod+BackSpace mode "$system"
 bindsym $mod+Return exec /usr/bin/alacritty
 
 # Start firefox on workspace 7
-bindsym $mod+Shift+m exec /usr/bin/firefox --no-remote -P workspace7 --class firefoxws7
+bindsym $mod+Shift+m exec /usr/bin/firefox --no-remote -P default-release --class firefoxws7
 
 # Start firefox on workspace 10
-bindsym $mod+m exec /usr/bin/firefox --no-remote -P workspace10 --class firefoxws10
+bindsym $mod+m exec /usr/bin/firefox --no-remote -P default --class firefoxws10
 
 # Open emacs
 bindsym $mod+z exec /usr/bin/emacs --name=ide
@@ -174,7 +174,7 @@ bindsym $mod+d exec discord
 bindsym Print exec scrot $HOME/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Open arandr
-bindsym $mod+Shift+a arandr
+bindsym $mod+Shift+a exec arandr
 
 ########################
 #  Workspace behavior  #
@@ -246,7 +246,7 @@ exec --no-startup-id /usr/bin/picom
 exec --no-startup-id /usr/bin/dunst
 
 # Start firefox on workspace 7
-exec --no-startup-id /usr/bin/firefox --no-remote -P workspace7 --class firefoxws7
+exec --no-startup-id /usr/bin/firefox --no-remote -P default-release --class firefoxws7
 
 # Start alacritty on workspace 8
 exec --no-startup-id /usr/bin/alacritty
@@ -255,7 +255,7 @@ exec --no-startup-id /usr/bin/alacritty
 exec --no-startup-id emacs --name=ide
 
 # Start firefox on workspace 10
-exec --no-startup-id /usr/bin/firefox --no-remote -P workspace10 --class firefoxws10
+exec --no-startup-id /usr/bin/firefox --no-remote -P default --class firefoxws10
 
 
 #################
@@ -286,18 +286,17 @@ for_window [class="Arandr"] floating enable
 ########################################
 
 # Define colors variables
-set $darker 	#000000
-set $dark		#151515
-set $light		#656565
-set $lighter	#ffffff
-set $bright		#00FF00
+set $black 	#282c34
+set $white	    #bbc2cf
+set $grey		#656565
+set $bright	#00FF00
 
 # Define colors for windows
 #Class					Border		Bground		Text		Indicator	Child_border
-client.focused          $lighter	$darker     $bright   	$lighter	$lighter
-client.unfocused        $light		$darker   	$light  	$light		$light
-client.focused_inactive $light		$darker   	$bright   	$light		$light
-client.urgent           $lighter	$darker     $lighter   	$lighter	$lighter
+client.focused          $white	    $black          $white   	$white	    $white
+client.unfocused        $grey		$black          $grey  	$grey		$grey
+client.focused_inactive $grey		$black   	    $white   	$grey		$grey
+client.urgent           $white	    $black          $white   	$white	    $white
 
 
 ##################
@@ -316,14 +315,14 @@ bar {
     # Define colors for bar
 	colors {
 		separator           $bright
-		background          $darker
-		statusline          $lighter
+		background          $black
+		statusline          $white
 
-		#                   Border		Bground     Text       	Indicator
-		focused_workspace   $lighter	$darker     $bright   	$lighter
-		active_workspace    $light		$darker   	$bright   	$light
-		inactive_workspace  $light		$darker     $light 		$light
-		urgent_workspace    $lighter	$darker    	$lighter	$lighter
+		#                   Border		Bground     Text      	Indicator
+		focused_workspace   $white	    $black      $white   	$white
+		active_workspace    $grey		$black      $white   	$grey
+		inactive_workspace  $grey		$black      $grey 	    $grey
+		urgent_workspace    $white	    $black    	$white	    $white
 	}
 }
 
