@@ -125,4 +125,8 @@ cd $HOME && mkdir \
 cd $HOME/.dotfiles/ && stow --adopt */ -t $HOME
 cd $HOME/.dotfiles/ && git restore .
 
+rm -rf $HOME/.emacs.d
+git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+$HOME/.emacs.d/bin/doom install
+
 printf "\nAll finsihed. Reboot for configuration to take effect.\n\n"
