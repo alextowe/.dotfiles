@@ -174,10 +174,10 @@ bindsym $mod+BackSpace mode "$system"
 bindsym $mod+Return exec /usr/bin/alacritty
 
 # Start firefox on workspace 7
-bindsym $mod+Shift+b exec /usr/bin/firefox --no-remote -P default-release --class firefoxws7
+bindsym $mod+Shift+b exec /usr/bin/firefox --new-window
 
 # Start firefox on workspace 10
-bindsym $mod+b exec /usr/bin/firefox --no-remote -P default --class firefoxws10
+bindsym $mod+b exec /usr/bin/firefox --new-window
 
 # Open emacs
 bindsym $mod+z exec /usr/bin/emacs --name=ide
@@ -271,7 +271,7 @@ exec --no-startup-id /usr/bin/picom
 exec --no-startup-id /usr/bin/dunst
 
 # Start firefox on workspace 7
-exec --no-startup-id /usr/bin/firefox --no-remote -P default-release --class firefoxws7
+exec --no-startup-id /usr/bin/firefox --new-window
 
 # Start alacritty on workspace 8
 exec --no-startup-id /usr/bin/alacritty
@@ -280,7 +280,7 @@ exec --no-startup-id /usr/bin/alacritty
 exec --no-startup-id emacs --name=ide
 
 # Start firefox on workspace 10
-exec --no-startup-id /usr/bin/firefox --no-remote -P default --class firefoxws10
+exec --no-startup-id /usr/bin/firefox --new-window
 
 # Start clipmenud
 exec --no-startup-if /usr/bin/clipmenud
