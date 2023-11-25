@@ -35,6 +35,9 @@ git_add_commit() {
 git_create_ssh_key() {
 	read -p "Enter key name: " KEY_NAME
 	GIT_EMAIL="$(git config --global user.email)"
+	if [[ $GIT_EMAIL == ""  ]]; then
+	   read -p "Enter email address: " GIT_EMAIL
+	fi
 	ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f $HOME/.ssh/$KEY_NAME
 	eval "$(ssh-agent -s)"
 	ssh-add $HOME/.ssh/$KEY_NAME

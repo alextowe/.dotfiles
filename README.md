@@ -22,6 +22,7 @@ The following packages will be installed during setup.
 ### Security: ###
 * nftables
 * ufw
+* openssh
 * intel-ucode
 
 
@@ -45,6 +46,8 @@ The following packages will be installed during setup.
 * feh
 * arandr
 * alacritty
+* dmenu
+* clipmenu
 * firefox
 * discord
 * scrot

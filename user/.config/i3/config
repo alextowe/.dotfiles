@@ -182,14 +182,11 @@ bindsym $mod+z exec /usr/bin/emacs --name=ide
 # Open pavucontrol
 bindsym $mod+a exec pavucontrol
 
-# Open dmenu for apps
-bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'"
-
-# Open clipmenu
-bindsym $mod+c exec clipmenu -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'
-
 # Open discord
-bindsym $mod+Ctrl+d exec discord
+bindsym $mod+d exec discord
+
+# Open clipboard
+bindsym $mod+c exec clipmenu -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'
 
 # Screenshot of entire screen
 bindsym Print exec scrot $HOME/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
@@ -276,7 +273,7 @@ exec --no-startup-id emacs --name=ide
 exec --no-startup-id /usr/bin/firefox
 
 # Start clipmenud
-exec --no-startup-if /usr/bin/clipmenud
+exec --no-startup-id /usr/bin/clipmenud
 
 
 #################

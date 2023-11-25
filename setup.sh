@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Configure git user
+read -p "Enter your name for git: " GIT_NAME
+read -p "Enter email for git: " GIT_EMAIL
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+
 # Skip password prompt for sudo commands
 sudo su - <<END
 printf "%%wheel ALL=(ALL) NOPASSWD: ALL\n" > /etc/sudoers.d/10-wheel
@@ -57,7 +63,6 @@ yay -S --noconfirm \
 	alacritty \
 	dmenu \
 	clipmenu \
-	j4-dmenu-desktop \
 	firefox \
 	discord \
 	scrot \
