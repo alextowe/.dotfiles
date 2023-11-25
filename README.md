@@ -1,10 +1,9 @@
-# My dotfiles
+# My dotfiles #
 
 The following packages will be installed during setup. 
 
-### Tools
+### Tools ###
 * bash-completion
-* neovim
 * ranger
 * reflector
 * less
@@ -12,6 +11,7 @@ The following packages will be installed during setup.
 * stow
 * man-db
 * man-pages
+* emacs
 * numlockx
 * os-prober
 * ntfs-3g
@@ -19,13 +19,13 @@ The following packages will be installed during setup.
 * postgresql
 
 
-### Security:
+### Security: ###
 * nftables
 * ufw
 * intel-ucode
 
 
-### Display:
+### Display: ###
 * xorg-server
 * xorg-apps
 * xorg-xinit
@@ -39,10 +39,6 @@ The following packages will be installed during setup.
 * perl-anyevent-i3
 * picom
 * pavucontrol
-* pasystray
-* network-manager-applet
-* rofi
-* rofi-greenclip
 * dunst
 * xdg-user-dirs
 * xautolock
@@ -53,8 +49,8 @@ The following packages will be installed during setup.
 * discord
 * scrot
 
-### Appearance:
-* arc-gtk-theme +
+### Appearance: ###
+* arc-gtk-theme
 * arc-icon-theme
 * xcursor-breeze 
 * noto-fonts 
@@ -65,5 +61,4 @@ The following packages will be installed during setup.
 * ttf-droid 
 * ttf-roboto 
 * terminus-font
-
 
