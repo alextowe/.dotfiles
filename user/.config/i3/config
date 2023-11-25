@@ -173,11 +173,8 @@ bindsym $mod+BackSpace mode "$system"
 # Start a terminal
 bindsym $mod+Return exec /usr/bin/alacritty
 
-# Start firefox on workspace 7
-bindsym $mod+Shift+b exec /usr/bin/firefox --new-window
-
-# Start firefox on workspace 10
-bindsym $mod+b exec /usr/bin/firefox --new-window
+# Start firefox 
+bindsym $mod+b exec /usr/bin/firefox 
 
 # Open emacs
 bindsym $mod+z exec /usr/bin/emacs --name=ide
@@ -226,11 +223,10 @@ workspace $ws9 output DP-4
 workspace $ws10 output DP-4
 
 # Bind program to workspace
-assign [class="discord"] $ws6
-assign [class="firefoxws7"] $ws7
+assign [class="discord"] $ws7
 assign [class="Alacritty"] $ws8
 assign [class="Emacs" instance="ide"] $ws9
-assign [class="firefoxws10"] $ws10
+assign [class="firefox"] $ws10
 
 # Automatic set focus to new window 
 for_window [class=discord] focus
@@ -270,17 +266,14 @@ exec --no-startup-id /usr/bin/picom
 # Desktop notifications
 exec --no-startup-id /usr/bin/dunst
 
-# Start firefox on workspace 7
-exec --no-startup-id /usr/bin/firefox --new-window
-
 # Start alacritty on workspace 8
 exec --no-startup-id /usr/bin/alacritty
 
 # Start emacs on workspace 9
 exec --no-startup-id emacs --name=ide
 
-# Start firefox on workspace 10
-exec --no-startup-id /usr/bin/firefox --new-window
+# Start firefox on workspace 
+exec --no-startup-id /usr/bin/firefox
 
 # Start clipmenud
 exec --no-startup-if /usr/bin/clipmenud
