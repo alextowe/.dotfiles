@@ -66,6 +66,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+########################################
+#  Color settings for bar and windows  #
+########################################
+
+# Define colors variables
+set $black 	#282c34
+set $white	    #bbc2cf
+set $grey		#656565
+set $bright	#00FF00
+
+# Define colors for windows
+#Class					Border		Bground		Text		Indicator	Child_border
+client.focused          $white	    $black          $white   	$white	    $white
+client.unfocused        $grey		$black          $grey  	$grey		$grey
+client.focused_inactive $grey		$black   	    $grey   	$grey		$grey
+client.urgent           $white	    $black          $white   	$white	    $white
+
+
 ########################
 #  System keybindings  #
 ########################
@@ -167,14 +185,17 @@ bindsym $mod+z exec /usr/bin/emacs --name=ide
 # Open pavucontrol
 bindsym $mod+a exec pavucontrol
 
+# Open dmenu
+bindsym $mod+d exec dmenu_run -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'
 # Open discord
-bindsym $mod+d exec discord
+#bindsym $mod+d exec discord
 
 # Screenshot of entire screen
 bindsym Print exec scrot $HOME/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Open arandr
 bindsym $mod+Shift+a exec arandr
+
 
 ########################
 #  Workspace behavior  #
@@ -279,24 +300,6 @@ for_window [floating] border normal 1 move position center
 # Allow floating for certain applications  
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Arandr"] floating enable 
-
-
-########################################
-#  Color settings for bar and windows  #
-########################################
-
-# Define colors variables
-set $black 	#282c34
-set $white	    #bbc2cf
-set $grey		#656565
-set $bright	#00FF00
-
-# Define colors for windows
-#Class					Border		Bground		Text		Indicator	Child_border
-client.focused          $white	    $black          $white   	$white	    $white
-client.unfocused        $grey		$black          $grey  	$grey		$grey
-client.focused_inactive $grey		$black   	    $white   	$grey		$grey
-client.urgent           $white	    $black          $white   	$white	    $white
 
 
 ##################
