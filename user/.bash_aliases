@@ -13,7 +13,7 @@ alias i3c="$EDITOR $HOME/.config/i3/config"
 #####################
 
 create_symlinks() {
-	cd $HOME/.dotfiles && stow --adopt */ -t $HOME/
+	cd $HOME/.dotfiles && stow --adopt user -t $HOME/
 	cd $HOME/.dotfiles && git restore .
 }
 
