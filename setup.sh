@@ -55,6 +55,9 @@ yay -S --noconfirm \
 	feh \
 	arandr \
 	alacritty \
+	dmenu \
+	clipmenu \
+	j4-dmenu-desktop \
 	firefox \
 	discord \
 	scrot \
@@ -72,6 +75,7 @@ yay -S --noconfirm \
 
 # Enable autologin
 sudo sed -i "s/#autologin-user=/autologin-user=$USER/" /etc/lightdm/lightdm.conf
+sudo sed -i "s/#autologin-session=/autologin-session=i3/" /etc/lightdm/lightdm.conf
 sudo groupadd -r autologin
 sudo gpasswd -a $USER autologin
 

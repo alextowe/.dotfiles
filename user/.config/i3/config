@@ -74,7 +74,7 @@ bindsym $mod+r mode "resize"
 set $black 	#282c34
 set $white	    #bbc2cf
 set $grey		#656565
-set $bright	#00FF00
+set $green	#98be65
 
 # Define colors for windows
 #Class					Border		Bground		Text		Indicator	Child_border
@@ -185,10 +185,14 @@ bindsym $mod+z exec /usr/bin/emacs --name=ide
 # Open pavucontrol
 bindsym $mod+a exec pavucontrol
 
-# Open dmenu
-bindsym $mod+d exec dmenu_run -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'
+# Open dmenu for apps
+bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'"
+
+# Open clipmenu
+bindsym $mod+c exec clipmenu -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'
+
 # Open discord
-#bindsym $mod+d exec discord
+bindsym $mod+Ctrl+d exec discord
 
 # Screenshot of entire screen
 bindsym Print exec scrot $HOME/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
@@ -278,6 +282,9 @@ exec --no-startup-id emacs --name=ide
 # Start firefox on workspace 10
 exec --no-startup-id /usr/bin/firefox --no-remote -P default --class firefoxws10
 
+# Start clipmenud
+exec --no-startup-if /usr/bin/clipmenud
+
 
 #################
 #  System tray  #
@@ -317,7 +324,7 @@ bar {
 
     # Define colors for bar
 	colors {
-		separator           $bright
+		separator           $green
 		background          $black
 		statusline          $white
 
