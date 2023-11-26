@@ -69,14 +69,7 @@ yay -S --noconfirm \
 	arc-gtk-theme \
 	arc-icon-theme \
 	xcursor-breeze \
-	noto-fonts \
-	ttf-ubuntu-font-family \
 	ttf-dejavu \
-	ttf-freefont \
-	ttf-liberation \
-	ttf-droid \
-	ttf-roboto \
-	terminus-font
 
 # Enable autologin
 sudo sed -i "s/#autologin-user=/autologin-user=$USER/" /etc/lightdm/lightdm.conf

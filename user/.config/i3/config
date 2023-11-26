@@ -3,7 +3,7 @@
 #################################
 
 # Font for window titles
-font pango: Noto Sans Regular 10
+font pango: Dejavu Sans Mono 11
 
 # Set the mod key to the winkey
 set $mod Mod4
@@ -188,11 +188,14 @@ bindsym $mod+d exec discord
 # Open clipboard
 bindsym $mod+c exec clipmenu -m 0 -l 15 -nb '$black' -nf '$white' -sb '$white' -sf '$black'
 
+# Clear clipboard
+bindsym $mod+Ctrl+c exec clipdel -d .
+
 # Screenshot of entire screen
 bindsym Print exec scrot $HOME/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $HOME/pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Open arandr
-bindsym $mod+Shift+a exec arandr
+bindsym $mod+Ctrl+a exec arandr
 
 
 ########################
@@ -305,12 +308,12 @@ for_window [class="Arandr"] floating enable
 
 # Start i3bar
 bar {
-	font pango: Noto Sans Regular 10
+	font pango: Dejavu Sans Mono 11
 	status_command i3status -c $HOME/.config/i3/i3status.conf 
-	separator_symbol "  :  :  "
+	separator_symbol " :: "
 	position top
 	tray_output primary
-	tray_padding 0
+	tray_padding 2
 
     # Define colors for bar
 	colors {

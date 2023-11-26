@@ -56,12 +56,4 @@ The following packages will be installed during setup.
 * arc-gtk-theme
 * arc-icon-theme
 * xcursor-breeze 
-* noto-fonts 
-* ttf-ubuntu-font-family 
 * ttf-dejavu 
-* ttf-freefont 
-* ttf-liberation 
-* ttf-droid 
-* ttf-roboto 
-* terminus-font
-
