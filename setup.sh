@@ -26,13 +26,14 @@ yay -Syu --noconfirm
 yay -S --noconfirm \
 	bash-completion \
 	ranger \
+	pacman-contrib \
 	reflector \
 	less \
 	which \
 	stow \
 	man-db \
 	man-pages \
-	emacs \
+	code \
 	numlockx \
 	os-prober \
 	ntfs-3g \
@@ -53,7 +54,6 @@ yay -S --noconfirm \
 	i3lock \
 	i3exit \
 	perl-anyevent-i3 \
-	picom \
 	pavucontrol \
 	dunst \
 	xdg-user-dirs \
@@ -86,6 +86,10 @@ sudo systemctl start ufw.service
 sudo ufw allow SSH
 sudo ufw enable
 
+# Enable auto pacman cache cleaning
+sudo systemctl enable paccache.timer
+sudo systemctl start paccache.timer
+
 # Enable reflector updates
 sudo sed -i "s/# --country France,Germany/--country US/" /etc/xdg/reflector/reflector.conf
 sudo systemctl enable reflector.service
@@ -117,9 +121,5 @@ cd $HOME && mkdir \
 # Use stow to create symlinks
 cd $HOME/.dotfiles/ && stow --adopt */ -t $HOME
 cd $HOME/.dotfiles/ && git restore .
-
-rm -rf $HOME/.emacs.d
-git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
-$HOME/.emacs.d/bin/doom install
 
 printf "\nAll finsihed. Reboot for configuration to take effect.\n\n"
