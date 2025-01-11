@@ -1,7 +1,7 @@
 [user]
 	name = Alex Towe
 	email = 107151439+alextowe@users.noreply.github.com
-	signingkey = /home/alex/.ssh/id_ed25519.pub
+	signingKey = ~/.ssh/id_ed25519.pub
 
 [gpg]
 	format = ssh
