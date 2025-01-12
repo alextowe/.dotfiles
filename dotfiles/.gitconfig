@@ -10,8 +10,17 @@
 	defaultBranch = main
 
 [alias]
-	st = status
-
+	a = add --all
+	b = branch
+	cm = commit -S -m
+	co = checkout
+	cob = checkout -b
+	com = checkout main
+	l = log --oneline --graph --decorate
+	pl = pull
+	ps = push
+	pso = push -m origin main
+	s = status
 [color]
 	ui = auto
 
