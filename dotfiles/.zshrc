@@ -11,27 +11,30 @@ zstyle ':completion:*' menu select
 precmd() {
 	vcs_info
 	setopt prompt_subst
-	zstyle ':vcs_info:git:*' formats '%r(%b) ' 
+	zstyle ':vcs_info:git:*' formats '%s:%r(%b) ' '%S ' '%r ' 
 	
 	PS1=$'\n'
 	PS1+='%F{white}[${(r:COLUMNS-2::-:)}]%f'
-	PS1+='%F{cyan}%~%f '
+	RPS1=''
 
 	if [[ -n ${vcs_info_msg_0_} ]] ; then
 		if [[ -n "$(git status --porcelain)" ]] ; then
-			PS1+='%F{yellow}${vcs_info_msg_0_}%f'
+			RPS1+='%F{yellow}${vcs_info_msg_0_}%f'
 		else
-			PS1+='%F{green}${vcs_info_msg_0_}%f'
+			RPS1+='%F{green}${vcs_info_msg_0_}%f'
 		fi
 	fi
 
 
+	PS1+='%F{cyan}%~%f '
 	PS1+='>> '
-	RPS1='%F{grey}%n@%m%f %*'
+	RPS1+='%F{grey}%n@%m%f %*'
 }
 
-
-
-
-
+# Aliases
+alias ls='ls -F --color=auto'
+alias la='ls -alF --color=auto'
+alias hm='cd $HOME'
+alias r='/usr/bin/ranger'
+alias ss='source ~/.zshrc && echo ".zshrc reloaded!"'
 
