@@ -13,8 +13,7 @@ precmd() {
 	setopt prompt_subst
 	zstyle ':vcs_info:git:*' formats '%s:%r(%b) ' '%S ' '%r ' 
 	
-	PS1=$'\n'
-	PS1+='%F{white}[${(r:COLUMNS-2::-:)}]%f'
+	PS1='%F{white}[${(r:COLUMNS-2::-:)}]%f'
 	RPS1=''
 
 	if [[ -n ${vcs_info_msg_0_} ]] ; then
