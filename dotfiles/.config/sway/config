@@ -1,33 +1,22 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+# Config for sway
 
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
+# Mod key
 set $mod Mod4
-# Home row direction keys, like vim
+# Direction keys
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# Terminal
 set $term foot
-# Your preferred application launcher
+# Application launcher
 set $menu wmenu-run
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# Wallpaper
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -79,8 +68,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -130,14 +117,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
+    # Split direction
     bindsym $mod+b splith
     bindsym $mod+v splitv
 
@@ -206,6 +189,26 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
+
+#
+# System menu
+# 
+set $swaylock sh ~/.config/sway/scripts/blurlock.sh
+set $system system control: [l]ock, [s]uspend, [r]eboot, [p]oweroff
+mode "$system" {
+    # Controls
+    bindsym l exec $swaylock, mode "default"
+    bindsym e exec swaymsg exit, mode "default"
+    bindsym s exec systemctl suspend && $swaylock, mode "default" 
+    bindsym r exec reboot, mode "default"
+    bindsym p exec poweroff, mode "default"
+ 
+    # Exit menu
+    bindsym Return mode "default"
+    bindsym BackSpace mode "default"
+}
+
+bindsym $mod+BackSpace mode "$system"
 
 #
 # Status Bar:
