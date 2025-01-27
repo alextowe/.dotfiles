@@ -194,7 +194,7 @@ bindsym $mod+r mode "resize"
 # System menu
 # 
 set $swaylock sh ~/.config/sway/scripts/blurlock.sh
-set $system system control: [l]ock, [s]uspend, [r]eboot, [p]oweroff
+set $system [l]ock, [s]uspend, [r]eboot, [p]oweroff
 mode "$system" {
     # Controls
     bindsym l exec $swaylock, mode "default"
@@ -211,9 +211,22 @@ mode "$system" {
 bindsym $mod+BackSpace mode "$system"
 
 #
+# Window colors:
+#
+set $text #ffffff
+set $background #222222
+set $focused #2F3640
+set $unfocused #3B3B3B
+set $unfocused_text #BABABA
+
+# class 			border		bg		text
+client.focused 			$focused 	$focused	$text
+client.focused_inactive 	$unfocused	$unfocused	$unfocused_text	
+client.unfocused 		$unfocused	$unfocused	$unfocused_text	
+
+#
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
 
@@ -222,9 +235,14 @@ bar {
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline $text
+        background $background
+	
+	# class			border		bg		text
+	focused_workspace 	$focused 	$focused	$text
+	active_workspace 	$unfocused	$unfocused	$unfocused_text	
+	inactive_workspace 	$unfocused	$unfocused	$unfocused_text	
+	binding_mode          	$background	$background	$text 
     }
 }
 
