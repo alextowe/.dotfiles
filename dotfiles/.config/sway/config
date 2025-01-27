@@ -173,6 +173,7 @@ mode "resize" {
 
     # Return to default mode
     bindsym Return mode "default"
+    bindsym BackSpace mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
@@ -206,6 +207,7 @@ mode "$system" {
     # Exit menu
     bindsym Return mode "default"
     bindsym BackSpace mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+BackSpace mode "$system"

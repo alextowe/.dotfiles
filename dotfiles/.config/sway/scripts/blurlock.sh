@@ -8,7 +8,7 @@ for OUTPUT in `swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .
 do
     IMAGE=/tmp/$OUTPUT-lock.png
     grim -o $OUTPUT $IMAGE
-    magick $IMAGE -blur 0x8 $IMAGE
+    magick $IMAGE -scale 10% -blur 0x2 -resize 1000% $IMAGE
     composite -gravity center $IMAGE $IMAGE
     LOCKARGS="${LOCKARGS} --image ${OUTPUT}:${IMAGE}"
     IMAGES="${IMAGES} ${IMAGE}"
