@@ -17,24 +17,24 @@ swaylock $LOCKARGS \
 	--ignore-empty-password \
 	--indicator-radius 60 \
 	--text-color=ffffff00 \
-	--ring-color=ffffff3e \
+	--ring-color=2222223e \
 	--inside-color=ffffff00 \
 	--line-color=ffffff00 \
-	--key-hl-color=00000080 \
-	--bs-hl-color=9933333e \
-	--caps-lock-key-hl-color=00000080 \
-	--caps-lock-bs-hl-color=9933333e \
-	--separator-color=00000080 \
+	--key-hl-color=2F36403e \
+	--bs-hl-color=2F36403e \
+	--caps-lock-key-hl-color=22222280 \
+	--caps-lock-bs-hl-color=22222280 \
+	--separator-color=ffffff00 \
 	--text-ver-color=ffffff00 \
-	--ring-ver-color=0099333e \
+	--ring-ver-color=44BD323e \
 	--inside-ver-color=ffffff00 \
 	--line-ver-color=ffffff00 \
 	--text-clear-color=ffffff00 \
-	--ring-clear-color=ff99003e \
+	--ring-clear-color=2F36403e \
 	--inside-clear-color=ffffff00 \
 	--line-clear-color=ffffff00 \
 	--text-wrong-color=ffffff00 \
-	--ring-wrong-color=9933333e \
+	--ring-wrong-color=c236163e \
 	--inside-wrong-color=ffffff00 \
 	--line-wrong-color=ffffff00
 
