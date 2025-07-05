@@ -2,16 +2,8 @@
 	"segments": {
 		"left": [
 			{
-				"function": "powerline.segments.common.net.hostname",
-				"priority": 10
-			},
-			{
-				"function": "powerline.segments.common.env.user",
-				"priority": 30
-			},
-			{
 				"function": "powerline.segments.common.env.virtualenv",
-				"priority": 50
+				"priority": 30
 			},
 			{
 				"function": "powerline.segments.shell.cwd",
@@ -29,19 +21,35 @@
 			},
 			{
 				"function": "powerline.segments.common.vcs.stash",
-				"priority": 50
+				"priority": 30
 			},
 			{
 				"function": "powerline.segments.common.vcs.branch",
-				"priority": 40,
+				"priority": 20,
 				"args": {
 					"status_colors": true
 				}
 			},
 			{
-				"function": "powerline.segments.common.date.time",
-				"format": "%H:%M:%S",
-				"istime": true
+				"function": "powerline.segments.common.env.user",
+				"priority": 10
+			},
+			{
+				"function": "powerline.segments.common.net.hostname",
+				"priority": 10,
+				"args": {
+					"only_if_ssh": false,
+					"exclude_domain": false
+				}
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"priority": 10,
+				"name": "time",
+				"args": {
+					"format": "%H:%M:%S",
+					"istime": true
+				}
 			}
 		]
 	}
