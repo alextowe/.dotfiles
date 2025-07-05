@@ -6,7 +6,16 @@
 				"priority": 50
 			},
 			{
+				"function": "powerline.segments.common.env.user",
+				"priority": 10
+			},
+			{
+				"function": "powerline.segments.common.net.hostname",
+				"priority": 10
+			},
+			{
 				"function": "powerline.segments.common.time.date",
+				"priority": 10,
 				"name": "date",
 				"args": {
 					"format": "%m/%d/%Y",
@@ -15,14 +24,12 @@
 			},
 			{
 				"function": "powerline.segments.common.time.date",
+				"priority": 10,
 				"name": "time",
 				"args": {
 					"format": "%H:%M",
 					"istime": true
 				}
-			},
-			{
-				"function": "powerline.segments.common.net.hostname"
 			}
 		]
 	}
