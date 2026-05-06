@@ -10,7 +10,7 @@
 	defaultBranch = main
 
 [alias]
-	a = add --all
+	a = !git add --all && git status
 	b = branch
 	cm = commit -S -m
 	co = checkout
