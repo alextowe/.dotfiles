@@ -17,6 +17,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 powerline-daemon -q
 . /usr/share/powerline/bindings/zsh/powerline.zsh
 
+# Python virtualenv
+mkdir -p $WORKON_HOME
+source /usr/sbin/virtualenvwrapper.sh
+
 # Aliases
 alias ls='ls -F --color=auto'
 alias la='ls -alF --color=auto'

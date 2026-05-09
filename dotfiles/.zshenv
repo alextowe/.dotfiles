@@ -6,3 +6,6 @@ export SAVEHIST=10000
 # Default editors
 export EDITOR="/usr/bin/vim"
 export SUDO_EDITOR="/usr/bin/vim"
+
+# Python virtualenv
+export WORKON_HOME=$HOME/code/.virtualenvs
