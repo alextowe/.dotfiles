@@ -1,0 +1,24 @@
+#
+# ~/.zshrc
+# 
+
+# Display current directory only
+grml_prompt_token_default[path]='%1~ '
+
+# Change percent sign to a dollar sign
+grml_prompt_token_default[percent]='%(#.#.$) '
+
+
+# Load syntax highlighting
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Load autosuggestions
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# Python virtualenv
+#mkdir -p $WORKON_HOME
+#source /usr/sbin/virtualenvwrapper.sh
