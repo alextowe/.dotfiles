@@ -8,6 +8,8 @@ grml_prompt_token_default[path]='%B%F{cyan}%1~%f%b '
 # Change percent sign to a dollar sign
 grml_prompt_token_default[percent]='%(#.#.$) '
 
+# Disable the list prompt
+zstyle ':completion:*' menu yes select
 
 # Load syntax highlighting
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
