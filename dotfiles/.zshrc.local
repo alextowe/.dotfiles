@@ -12,7 +12,7 @@ grml_prompt_token_default[percent]='%(#.#.$) '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats '%F{yellow}(%b%m)%f '
 zstyle ':vcs_info:git:*' actionformats '%F{yellow}(%b%m|%a)%f '
-zstyle ':vcs_info:git:*' nvcsformats ' %F{green}(%b%m)%f '
+zstyle ':vcs_info:git:*' nvcsformats '%F{green}(%b%m)%f '
 
 # Disable the list prompt
 zstyle ':completion:*' menu yes select
