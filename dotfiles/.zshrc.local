@@ -5,8 +5,16 @@
 # Display current directory only
 grml_prompt_token_default[path]='%B%F{cyan}%1~%f%b '
 
-# Change percent sign to a dollar sign
+# Change prompt to a dollar sign
 grml_prompt_token_default[percent]='%(#.#.$) '
+
+# Change 
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats ' %F{yellow}(%b)%u%c%f '
+zstyle ':vcs_info:git*' nvcsformats ' %F{green}(%b)%f '
+zstyle ':vcs_info:git*' actionformats ' %F{yellow}(%b|%a)%u%c%f '
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '+'
 
 # Disable the list prompt
 zstyle ':completion:*' menu yes select
