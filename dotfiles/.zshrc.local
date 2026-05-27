@@ -10,12 +10,23 @@ grml_prompt_token_default[percent]='%(#.#.$) '
 
 # Change 
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr '%F{yellow}'
-zstyle ':vcs_info:git:*' unstagedstr '%F{red}'
 
-zstyle ':vcs_info:git:*' formats '%u%c(%b%m)%f '
-zstyle ':vcs_info:git:*' actionformats '%u%c(%b%m|%a)%f '
-zstyle ':vcs_info:git:*' nvcsformats '%F{green}(%b%m)%f '
+zstyle ':vcs_info:git:*' formats '%m(%b) '
+zstyle ':vcs_info:git:*' actionformats '%m(%b|a) '
+#zstyle ':vcs_info:git:*' nvcsformats '%F{green}(%b)%f '
+
+
+#zstyle ':vcs_info:git:*+set-message:*' hooks git-status-format
+
++vi-git-status-format() {
+	# Yellow for staged changes
+	if [ -n $(git status --porcelain 2>/dev/null) ]; then
+		hook_com[misc]="%F{yellow}"
+	else
+		hook_com[misc]="%F{green}"
+	fi	
+
+}
 
 # Disable the list prompt
 zstyle ':completion:*' menu yes select
