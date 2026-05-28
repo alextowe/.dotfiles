@@ -196,15 +196,9 @@ bindsym $mod+r mode "resize"
 # 
 set $system [l]ock, [s]uspend, [r]eboot, [p]oweroff
 set $swaylock swaylock \
-	--screenshots \
-	--clock \
-	--indicator \
 	--indicator-radius 100 \
 	--indicator-thickness 7 \
-	--effect-blur 7x5 \
-	--effect-vignette 0.5:0.5 \
-	--grace 2 \
-	--fade-in 0.1 \
+    --color=00000000 \
     --text-color=ffffff99 \
 	--ring-color=22222299 \
 	--inside-color=ffffff00 \
@@ -245,16 +239,16 @@ bindsym $mod+BackSpace mode "$system"
 #
 # Window colors:
 #
-set $text #ffffff
+set $white #ffffff
 set $background #222222
 set $focused #2F3640
 set $unfocused #3B3B3B
 set $unfocused_text #BABABA
 
-# class 			border		bg		text
-client.focused 			$focused 	$focused	$text
-client.focused_inactive 	$unfocused	$unfocused	$unfocused_text	
-client.unfocused 		$unfocused	$unfocused	$unfocused_text	
+# class 			    border      bg          text            indicator
+client.focused          $focused    $focused    $white          $white
+client.focused_inactive $unfocused  $unfocused  $unfocused_text	
+client.unfocused        $unfocused  $unfocused  $unfocused_text	
 
 #
 # Status Bar:
@@ -267,16 +261,17 @@ bar {
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
-        statusline $text
+        statusline $white
         background $background
 	
-	# class			border		bg		text
-	focused_workspace 	$focused 	$focused	$text
-	active_workspace 	$unfocused	$unfocused	$unfocused_text	
-	inactive_workspace 	$unfocused	$unfocused	$unfocused_text	
-	binding_mode          	$background	$background	$text 
+        # class             border      bg          text
+        focused_workspace   $focused    $focused    $white
+        active_workspace    $unfocused  $unfocused  $unfocused_text	
+        inactive_workspace  $unfocused  $unfocused  $unfocused_text	
+        binding_mode        $background $background $white 
     }
 }
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
+include ~/.config/sway/local.d/*
