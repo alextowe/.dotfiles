@@ -194,7 +194,7 @@ bindsym $mod+r mode "resize"
 #
 # System menu
 # 
-set $system [l]ock, [s]uspend, [r]eboot, [p]oweroff
+set $system [l]ock, [e]xit, [s]uspend, [r]eboot, [p]oweroff
 set $swaylock swaylock \
 	--indicator-radius 100 \
 	--indicator-thickness 7 \
